@@ -1200,7 +1200,24 @@ img{display:block;max-width:100%}
   font-size:clamp(0.9375rem,1.1vw,1.0625rem);line-height:1.5;color:rgba(255,255,255,0.85);
 }
 @media(max-width:768px){
-  .cine-content{flex-direction:column;align-items:flex-start;gap:1.75rem}
+  /* Mobile: lay the hero out in normal flow so the video sits flush under the
+     header (no letterbox/black gap) at its true 16:9 height, with the text and
+     ticker following below it on the dark hero background. */
+  .cine-hero{
+    height:auto;min-height:0;
+    padding-top:var(--hdr-h);
+    display:flex;flex-direction:column;
+  }
+  .cine-media{
+    position:relative;inset:auto;
+    width:100%;aspect-ratio:16/9;   /* matches the video → fills with no bars */
+  }
+  .cine-scrim{display:none}
+  .cine-content{
+    position:static;bottom:auto;
+    flex-direction:column;align-items:flex-start;gap:1.75rem;
+    padding:1.75rem 1.5rem 2rem;
+  }
 }
 
 /* Step ticker + progress */
@@ -1235,6 +1252,11 @@ img{display:block;max-width:100%}
   .cine-step{font-size:0.6875rem;gap:0.4rem}
   .cine-step .lbl{display:none}
   .cine-step.active .lbl{display:inline}
+}
+@media(max-width:768px){
+  /* Mobile flow: ticker sits below the content (relative keeps the progress
+     bar anchored to it) instead of being pinned to the bottom of the hero. */
+  .cine-ticker{position:relative;bottom:auto}
 }
 
 /* ─── ÜBER METZLER ─── */
