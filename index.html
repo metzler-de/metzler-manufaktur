@@ -1215,6 +1215,7 @@ img{display:block;max-width:100%}
   .cine-scrim{display:none}
   .cine-content{
     position:static;bottom:auto;
+    width:100%;margin:0;          /* fill the row — auto margins would shrink+center this flex item */
     flex-direction:column;align-items:flex-start;gap:1.75rem;
     padding:1.75rem 1.5rem 2rem;
   }
