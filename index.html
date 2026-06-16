@@ -1316,7 +1316,7 @@ img{display:block;max-width:100%}
   display:grid;grid-template-columns:1fr;gap:0;
   max-width:1600px;margin:0 auto;padding:0 1.5rem;
 }
-@media(min-width:600px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:768px){.process-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr)}}
 @media(min-width:768px){.process-grid{padding:0 2.5rem}}
 .process-step{
@@ -1328,14 +1328,14 @@ img{display:block;max-width:100%}
 @media(min-width:1024px){.process-step{padding:3rem 2rem;min-height:22rem}}
 .process-step:last-child{border-right:none}
 @media(hover:hover){.process-step:hover{background:rgba(1,82,83,0.05)}}
-/* dividers — 2-col (tablet) */
-@media(max-width:1023px){
+/* dividers — 2-col (tablet) 768–1023 */
+@media(min-width:768px) and (max-width:1023px){
   .process-step:nth-child(2n){border-right:none}
   .process-step{border-bottom:1px solid rgba(0,0,0,0.12)}
   .process-step:nth-last-child(-n+2){border-bottom:none}
 }
-/* dividers — 1-col (mobile) */
-@media(max-width:599px){
+/* dividers — 1-col (mobile) up to 767 */
+@media(max-width:767px){
   .process-step{border-right:none;border-bottom:1px solid rgba(0,0,0,0.12)}
   .process-step:last-child{border-bottom:none}
 }
@@ -1349,6 +1349,14 @@ img{display:block;max-width:100%}
 .process-step .line{height:1px;width:3rem;background:var(--brand);transition:width .7s}
 @media(hover:hover){.process-step:hover .line{width:100%}}
 .process-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.6}
+/* Mobile: match the step sizing of the 2draht-bus reference page (1-col up to 767) */
+@media(max-width:767px){
+  .process-step{padding:1.5rem 0;gap:0.75rem}
+  .process-step-num{font-size:2rem}
+  .process-step-icon{width:2.25rem;height:2.25rem}
+  .process-step h3{font-size:1.25rem;letter-spacing:-0.04em}
+  .process-step p{font-size:1rem;line-height:1.6}
+}
 
 /* ─── QUALITY BAND ─── */
 .quality{position:relative;overflow:hidden;background-image:var(--gradient-brand);color:#fff;padding:4.5rem 1.5rem}
@@ -1416,7 +1424,7 @@ img{display:block;max-width:100%}
 .manufaktur,.quality,.prod-cta{padding-left:0!important;padding-right:0!important}
 /* Mobile (single column): drop the card's own side padding so step content aligns with the
    container gutter while the card/background stays inside the grid (not edge-to-edge). */
-@media(max-width:599px){.process-step{padding-left:0!important;padding-right:0!important}}
+@media(max-width:767px){.process-step{padding-left:0!important;padding-right:0!important}}
 </style>
 </head>
 <body>
@@ -1786,16 +1794,16 @@ img{display:block;max-width:100%}
       </div>
     </div>
     <div class="prod-cta-cards">
-      <a class="cta-card" href="category-page.html">
+      <a class="cta-card" href="https://edelstahl-tuerklingel.de/briefkasten">
         <img src="cat-images/briefkasten.webp" alt="Briefkästen" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Briefkästen</span></span>
       </a>
-      <a class="cta-card" href="category-page.html">
+      <a class="cta-card" href="https://edelstahl-tuerklingel.de/tuersprechanlagen">
         <img src="cat-images/türsprechanlagen.webp" alt="Sprechanlagen" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Sprechanlagen</span></span>
       </a>
-      <a class="cta-card" href="category-page.html">
+      <a class="cta-card" href="https://edelstahl-tuerklingel.de/tuerklingel">
         <img src="cat-images/türklingeln.webp" alt="Türklingeln" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Türklingeln</span></span>
       </a>
-      <a class="cta-card" href="category-page.html">
+      <a class="cta-card" href="https://edelstahl-tuerklingel.de/hausnummern-schilder-schriftzuege">
         <img src="cat-images/hausnummern.webp" alt="Hausnummern" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Hausnummern</span></span>
       </a>
     </div>
