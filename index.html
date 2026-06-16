@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metzler Manufaktur — So entsteht Ihr Produkt | Designed in Germany</title>
+<meta name="description" content="Von der Namensschild-Gravur über die Endkontrolle bis zum Versand: Sehen Sie im Video, wie wir Ihr Metzler-Produkt in Deutschland veredeln, prüfen und versandfertig machen.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --radius:0.25rem;
+  --background:#FFFFFF;
+  --foreground:#1A1A1F;
+  --card:#EAEAE5;
+  --card-foreground:#1A1A1F;
+  --primary:#015253;
+  --primary-foreground:#fff;
+  --secondary:#015253;
+  --secondary-foreground:#fff;
+  --muted:#E0E0DB;
+  --muted-foreground:#54545C;
+  --accent:#015253;
+  --accent-foreground:#fff;
+  --border:rgba(0,0,0,0.1);
+  --ring:#015253;
+  --brand:#015253;
+  --gold:#FFC628;
+  --mint:#5CDBD3;
+  /* Graphite text scale (design system) */
+  --g500:#A1A1A1;--g600:#7A7A82;--g700:#54545C;--g800:#2E2E36;--g850:#333333;--g900:#1A1A1F;
+  --gradient-brand:linear-gradient(135deg,#012a2b 0%,#011e1f 40%,#000a0a 100%);
+  --grain:url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  --font:Helvetica,"Helvetica Neue",Arial,sans-serif;
+}
+
+.section-light{
+  --background:#f0ebe1;
+  --foreground:#0a0a0a;
+  --card:#e6dfd1;
+  --card-foreground:#0a0a0a;
+  --muted:#e8e1d3;
+  --muted-foreground:#5a544a;
+  --border:rgba(0,0,0,0.12);
+  background:#f0ebe1;color:#0a0a0a;
+}
+.section-light .text-stroke{-webkit-text-stroke:1px #0a0a0a;color:transparent}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--background);
+  color:var(--foreground);
+  font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+::selection{background:var(--brand);color:#fff}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+img{display:block;max-width:100%}
+
+.font-display{font-family:var(--font);letter-spacing:-0.04em}
+.label{
+  font-family:var(--font);
+  font-size:0.6875rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted-foreground);
+}
+.text-stroke{
+  -webkit-text-stroke:1px var(--foreground);
+  color:transparent;
+}
+.grain{position:relative}
+.grain::after{
+  content:"";position:absolute;inset:0;
+  background-image:var(--grain);
+  opacity:0.06;pointer-events:none;
+  mix-blend-mode:overlay;
+}
+
+/* ─── HEADER ROW 1 — GREEN TOP BAR ─── */
+.hdr-row1{
+  position:fixed;top:0;left:0;right:0;z-index:52;
+  background:#015253;color:#fff;font-size:0.8125rem;
+  transition:opacity .3s;
+}
+.hdr-row1-inner{
+  max-width:1600px;margin:0 auto;
+  padding:0 1.5rem;height:32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+@media(min-width:1024px){.hdr-row1-inner{padding:0 2.5rem}}
+.hdr-badges{display:none;align-items:center;gap:24px;overflow:hidden;min-width:0;flex:1}
+@media(min-width:769px){.hdr-badges{display:flex}}
+.hdr-badge{white-space:nowrap;opacity:0.9}
+.hdr-badge.badge-hidden{display:none}
+.hdr-links{display:none;align-items:center;gap:20px;margin-left:auto}
+@media(min-width:769px){.hdr-links{display:flex}}
+.hdr-link{color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s;white-space:nowrap}
+.hdr-link:hover{color:#fff;text-decoration:underline}
+
+/* ─── HEADER ROW 2 — LOGO + SEARCH + ICONS ─── */
+.hdr-row2{
+  position:fixed;top:32px;left:0;right:0;z-index:51;
+  background:#fff;border-bottom:1px solid #eee;
+  transition:opacity .3s;
+}
+.hdr-row2-inner{
+  max-width:1600px;margin:0 auto;
+  padding:0 1.5rem;height:72px;
+  display:flex;align-items:center;gap:24px;
+}
+@media(min-width:1024px){.hdr-row2-inner{padding:0 2.5rem}}
+.hdr-logo{flex-shrink:0;display:flex;align-items:center}
+.hdr-logo img{height:34px;width:auto;display:block}
+.hdr-searchbar{
+  flex:1 1 0;min-width:0;height:44px;
+  display:none;align-items:center;gap:12px;
+  background:#F5F6FA;border-radius:4px;
+  padding:0 1rem;
+  border:1px solid #e0e0e0;
+  transition:border-color .2s,box-shadow .2s;
+}
+@media(min-width:769px){.hdr-searchbar{display:flex}}
+.hdr-searchbar:focus-within{border-color:#015253;box-shadow:0 0 0 3px rgba(1,82,83,0.15)}
+.hdr-searchbar svg{width:16px;height:16px;color:#999;flex-shrink:0}
+.hdr-searchbar input{
+  flex:1;min-width:0;background:none;border:none;outline:none;
+  font-size:1rem;font-family:inherit;color:#0a0a0a;
+}
+/* Safety: large display headings must wrap, never overflow */
+.cine-hero h1,.manufaktur h2,.process-head h2,.quality-text h2,.prod-cta h2{overflow-wrap:break-word}
+.hdr-searchbar input::placeholder{color:#A1A1A1}
+.search-clear{
+  display:none;align-items:center;justify-content:center;
+  width:20px;height:20px;border-radius:50%;
+  background:#ccc;border:none;cursor:pointer;
+  flex-shrink:0;padding:0;transition:background .2s;
+}
+.search-clear:hover{background:#aaa}
+.search-clear svg{width:12px;height:12px;color:#fff}
+.search-clear.visible{display:flex}
+.hdr-icons{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.hdr-icon-btn{
+  width:40px;height:40px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;
+  color:#333;transition:all .2s;position:relative;
+}
+.hdr-icon-btn:hover{color:#015253;background:#F5F6FA}
+.hdr-icon-btn svg{height:22px;width:auto}
+
+/* ─── HEADER ROW 3 — CATEGORY NAV ─── */
+.nav{
+  position:fixed;top:104px;left:0;right:0;z-index:50;
+  background:#fff;border-bottom:1px solid #DADADA;
+  transition:box-shadow .3s,opacity .3s;
+}
+.nav.scrolled{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.nav-inner{
+  max-width:1600px;margin:0 auto;
+  padding:0 1.5rem;height:54px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+@media(min-width:1024px){.nav-inner{padding:0 2.5rem}}
+.nav-categories{
+  display:none;align-items:center;gap:0;flex:1;
+  justify-content:space-between;height:100%;
+  min-width:0;flex-wrap:nowrap;
+}
+.nav-categories.has-overflow{justify-content:space-between}
+@media(min-width:769px){.nav-categories{display:flex}}
+.nav-cat{
+  position:relative;height:100%;
+  display:flex;align-items:center;
+  padding:0 0.5rem;font-size:1rem;font-weight:700;
+  color:#333;transition:color .2s;
+  white-space:nowrap;cursor:pointer;
+}
+.nav-cat:hover,.nav-cat.active{color:#015253}
+.nav-cat::after{
+  content:'';position:absolute;bottom:0;left:8px;right:8px;
+  height:3px;background:#015253;transform:scaleX(0);
+  transition:transform .2s;transform-origin:center;
+}
+.nav-cat:hover::after,.nav-cat.active::after{transform:scaleX(1)}
+.nav-cat.nav-hidden{display:none!important}
+.nav-alle-btn{
+  display:none;align-items:center;justify-content:center;gap:.5rem;
+  padding:.5rem 1.2rem;border-radius:.25rem;
+  background:#015253;border:none;cursor:pointer;
+  font-family:var(--font);font-size:1rem;font-weight:500;color:#fff;
+  white-space:nowrap;line-height:1.2;flex-shrink:0;
+  margin-right:1.5rem;transition:background .15s ease;
+}
+.nav-alle-btn:hover{background:#014A4B}
+.nav-alle-btn svg{width:18px;height:18px}
+.nav-alle-btn.visible{display:flex}
+
+/* ─── COMPACT STICKY HEADER ─── */
+.hdr-compact{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:#fff;border-bottom:1px solid #e0e0e0;
+  transform:translateY(-100%);
+  transition:transform .3s ease;
+  pointer-events:none;
+}
+.hdr-compact.visible{transform:translateY(0);pointer-events:auto}
+.hdr-compact-inner{
+  max-width:1600px;margin:0 auto;
+  padding:0 1.5rem;height:64px;
+  display:flex;align-items:center;gap:20px;
+}
+@media(min-width:1024px){.hdr-compact-inner{padding:0 2.5rem}}
+.hdr-compact .hdr-logo img{height:34px}
+.hdr-menu-btn{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  height:40px;padding:0 1.2rem;border-radius:.25rem;
+  background:#015253;border:none;cursor:pointer;
+  font-family:var(--font);font-size:1rem;font-weight:500;color:#fff;
+  white-space:nowrap;line-height:1.2;
+  transition:background .15s ease;flex-shrink:0;
+}
+.hdr-menu-btn:hover{background:#014A4B}
+.hdr-menu-btn svg{width:18px;height:18px}
+.hdr-compact .hdr-searchbar{height:40px;border-radius:4px;display:flex;flex:1 1 0;min-width:0}
+.hdr-compact .hdr-searchbar input{min-width:0}
+.hdr-compact .hdr-icons{margin-left:auto;flex-shrink:0}
+.hdr-compact .hdr-icon-btn{width:40px;height:40px}
+.hdr-compact .hdr-icon-btn svg{height:22px;width:auto}
+
+/* ─── MOBILE HEADER ─── */
+.hdr-mobile{
+  display:none;position:fixed;top:0;left:0;right:0;z-index:55;
+  flex-direction:column;transition:opacity .3s;
+}
+@media(max-width:768px){.hdr-mobile{display:flex}}
+.hdr-mobile-topbar{
+  background:#015253;height:28px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 0.9375rem;color:#fff;font-size:0.75rem;
+  transition:height .3s,opacity .3s,padding .3s;overflow:hidden;
+}
+.hdr-mobile-topbar.hidden{height:0;opacity:0;padding:0 0.9375rem}
+.hdr-mobile-topbar strong{font-weight:700}
+.hdr-mobile-bar{
+  height:50px;background:#fff;border-bottom:1px solid #DADADA;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 0.9375rem;
+}
+.hdr-mobile-left,.hdr-mobile-right{display:flex;align-items:center;gap:16px}
+.hdr-mobile-btn{
+  background:none;border:none;cursor:pointer;padding:0.25rem;
+  color:#333;display:flex;align-items:center;justify-content:center;
+}
+.hdr-mobile-btn svg{height:22px;width:auto}
+.hdr-mobile-logo{height:22px;width:auto}
+
+/* Hide desktop header on mobile */
+@media(max-width:768px){
+  .hdr-row1,.hdr-row2,.nav,.hdr-compact{display:none!important}
+}
+
+/* ─── SIDE MENU ─── */
+.side-overlay{
+  position:fixed;inset:0;z-index:70;
+  background:rgba(0,0,0,0.4);
+  opacity:0;visibility:hidden;
+  transition:opacity .3s,visibility .3s;
+}
+.side-overlay.open{opacity:1;visibility:visible}
+.side-menu{
+  position:fixed;top:0;left:0;bottom:0;z-index:71;
+  width:360px;max-width:85vw;
+  background:#fff;
+  transform:translateX(-100%);
+  transition:transform .35s cubic-bezier(0.4,0,0.2,1);
+  overflow-y:auto;
+  box-shadow:4px 0 24px rgba(0,0,0,0.12);
+}
+.side-menu.open{transform:translateX(0)}
+.side-menu-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 1.5rem;border-bottom:1px solid #eee;
+}
+.side-menu-header img{height:26px}
+.side-menu-close{
+  width:36px;height:36px;display:flex;align-items:center;
+  justify-content:center;border-radius:50%;
+  background:none;border:none;cursor:pointer;
+  color:#333;transition:background .2s;
+}
+.side-menu-close:hover{background:#F5F6FA}
+.side-menu-close svg{width:20px;height:20px}
+.side-menu-list{padding:0.75rem 0}
+.side-menu-item{
+  display:flex;align-items:center;gap:12px;
+  padding:0.875rem 1.5rem;font-size:1rem;font-weight:600;
+  color:#333;transition:background .15s,color .15s;
+  cursor:pointer;
+}
+.side-menu-item:hover{background:#F5F6FA;color:#015253}
+.side-menu-item svg{width:20px;height:20px;color:#999;flex-shrink:0}
+
+/* ─── MEGA MENU ─── */
+.mega-menu{
+  position:fixed;top:158px;left:0;right:0;
+  background:#fff;border-bottom:1px solid rgba(0,0,0,0.08);
+  padding:1.75rem 0 2rem;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .25s,transform .25s,visibility .25s;
+  z-index:49;
+}
+.mega-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.mega-menu-inner{max-width:1600px;margin:0 auto;padding:0 2.5rem}
+.mega-menu-grid{display:flex;flex-wrap:wrap;gap:26px;justify-content:center;padding-bottom:0.5rem}
+.mega-item{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:8px;padding:0.5rem;
+  border-radius:8px;transition:background .2s;width:180px;
+}
+.mega-item:hover{background:none}
+.mega-item-img{
+  width:180px;height:180px;object-fit:contain;
+  border-radius:6px;transition:transform .3s;
+  background:none;
+}
+.mega-item:hover .mega-item-img{transform:translateY(-4px)}
+.mega-item-label{font-size:0.875rem;font-weight:600;color:#555;line-height:1.3;transition:color .2s}
+.mega-item:hover .mega-item-label{color:#015253}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;overflow:hidden;
+  background-image:var(--gradient-brand);
+  display:flex;flex-direction:column;
+  min-height:0;
+}
+.hero-ambient1{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 30%,#013a3b 0%,transparent 60%);
+  opacity:0.6;
+}
+.hero-ambient2{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 100% 100%,#000 0%,transparent 70%);
+}
+.hero-grid{
+  position:relative;z-index:10;flex:1;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:16px;
+  align-content:center;
+  padding:6.25rem 1.5rem 2rem;
+  max-width:1600px;margin:0 auto;width:100%;box-sizing:border-box;
+}
+@media(min-width:769px){.hero-grid{padding:16.38rem 2.5rem 5.38rem 2.5rem}}
+
+.hero{color:#fff}
+.hero .text-stroke{-webkit-text-stroke-color:#fff}
+.hero .label{color:rgba(255,255,255,0.7)}
+
+.hero-center{grid-column:span 12;position:relative;z-index:20;max-width:50%}
+
+.hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.75rem}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:0.5rem 1rem;border-radius:4px;
+  border:1px solid rgba(255,255,255,0.25);
+  font-size:0.75rem;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);
+}
+.hero-badge strong{font-weight:700;color:#fff;letter-spacing:.08em}
+.hero h1{
+  font-size:clamp(2rem,5vw,2.875rem);
+  line-height:1.15;letter-spacing:-0.02em;font-weight:700;
+}
+.hero h1 .dash{font-style:italic;font-weight:300}
+.hero-desc{
+  margin-top:2.5rem;
+  font-size:1rem;color:rgba(255,255,255,0.85);line-height:1.6;
+}
+.hero-actions{margin-top:2rem;display:flex;gap:16px}
+.hero-actions .btn{flex:1;text-align:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  height:2.625rem;padding:.7rem 1.2rem;border-radius:.25rem;
+  font-family:var(--font);font-size:1rem;font-weight:500;
+  white-space:nowrap;line-height:1.2;cursor:pointer;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+  text-decoration:none;border:none;
+}
+.btn-lg{height:3.125rem;font-size:1.125rem;font-weight:600;padding:.7rem 1.75rem}
+.btn-primary{background:#015253;color:#fff}
+.btn-primary:hover{background:#014A4B}
+.btn-primary:active{background:#013E3E}
+.btn-white{background:transparent;color:#fff;border:.125rem solid #fff}
+.btn-white:hover{background:rgba(255,255,255,0.1)}
+.btn-white:active{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.6)}
+.btn-secondary{background:transparent;color:#015253;border:.125rem solid #015253}
+.btn-secondary:hover{background:#E6EEEE}
+.btn-secondary:active{background:#015253;color:#fff}
+
+.hero-product{
+  grid-column:span 12;
+  will-change:transform,filter;
+  transition:filter .1s;
+}
+@media(min-width:768px){
+  .hero-product{
+    position:absolute;right:0;top:50%;transform:translateY(-38%);
+    width:55vw;max-width:680px;z-index:0;
+  }
+}
+@media(min-width:1024px){.hero-product{width:50vw;max-width:720px}}
+@media(min-width:1440px){.hero-product{width:50vw;max-width:800px}}
+.hero-product .glow{
+  position:absolute;inset:-40px;
+  background:color-mix(in oklab,var(--secondary) 20%,transparent);
+  filter:blur(80px);border-radius:50%;
+}
+.hero-product img{position:relative;width:100%;height:auto;mix-blend-mode:multiply;margin-top:1.5rem}
+
+
+/* ─── MARQUEE ─── */
+.marquee-wrap{
+  display:none;
+  position:relative;overflow:hidden;
+  padding:0.875rem 0;
+  background:#e3f2f0;
+}
+.marquee-track{
+  display:flex;gap:40px;white-space:nowrap;
+  animation:marquee 40s linear infinite;
+}
+.marquee-track span{
+  display:flex;align-items:center;gap:40px;
+  font-size:clamp(12px,2vw,21px);letter-spacing:-0.03em;
+}
+.marquee-dot{color:var(--secondary)}
+@keyframes marquee{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-33.333%)}
+}
+
+/* ─── CATEGORIES ─── */
+.categories{
+  position:relative;padding:5rem 1.5rem 0;
+
+}
+@media(min-width:768px){.categories{padding:5rem 2.5rem 0}}
+.categories-header{
+  margin-bottom:2.5rem;max-width:1600px;margin-left:auto;margin-right:auto;
+}
+.categories-header h2{
+  font-size:1.5rem;line-height:1.3;letter-spacing:-0.03em;font-weight:700;
+}
+
+.cat-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:6px;
+  max-width:1600px;margin:0 auto;
+}
+@media(min-width:768px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+
+.cat-card{
+  position:relative;overflow:hidden;
+  border-radius:6px;cursor:pointer;
+  aspect-ratio:3/2;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .7s,transform .7s;
+}
+.cat-card.visible{opacity:1;transform:translateY(0)}
+.cat-card.featured{grid-column:span 2;grid-row:span 2;aspect-ratio:unset}
+@media(max-width:767px){.cat-card.featured{grid-column:span 2;aspect-ratio:3/2}}
+
+.cat-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.cat-card:hover img{transform:scale(1.06)}
+
+.cat-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.7) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1rem;
+}
+.cat-card .cat-name{
+  font-size:clamp(14px,1.8vw,20px);letter-spacing:-0.02em;
+  color:#fff;font-weight:700;line-height:1.1;
+}
+.cat-card.featured .cat-name{font-size:clamp(20px,2.5vw,28px)}
+.cat-card .cat-count{font-size:0.75rem;color:rgba(255,255,255,0.65);margin-top:0.25rem}
+.cat-card .cat-line{
+  height:2px;width:32px;background:var(--secondary);margin-bottom:0.75rem;
+  transition:width .7s;
+}
+.cat-card:hover .cat-line{width:80px}
+.cat-card .cat-badge{
+  position:absolute;top:12px;left:12px;z-index:3;
+  width:108px;height:108px;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.3));
+}
+.cat-card .cat-badge img{width:100%;height:100%;object-fit:contain;display:block}
+.cat-card .cat-arrow{
+  position:absolute;top:12px;right:12px;
+  width:32px;height:32px;
+  background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:0.875rem;
+  opacity:0;transform:translateX(-4px);
+  transition:opacity .2s,transform .2s;
+}
+.cat-card:hover .cat-arrow{opacity:1;transform:translateX(0)}
+
+/* ─── PROMO BANNER ─── */
+.promo-banner{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#012a2b 0%,#011e1f 40%,#000a0a 100%);
+}
+.promo-banner::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(1,82,83,0.4) 0%,transparent 60%);
+}
+.promo-banner::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 100% 100%,rgba(0,0,0,0.6) 0%,transparent 60%);
+}
+.promo-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr;gap:40px;
+  max-width:1600px;margin:0 auto;
+  padding:5rem 1.5rem;align-items:center;
+}
+@media(min-width:768px){
+  .promo-inner{
+    grid-template-columns:1fr 1fr;gap:48px;
+    padding:5rem 2.5rem;
+  }
+}
+@media(min-width:1200px){
+  .promo-inner{padding:5rem 2.5rem}
+}
+.promo-content{position:relative;z-index:2}
+.promo-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.6875rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(92,219,211,0.9);margin-bottom:1.5rem;
+}
+.promo-eyebrow::before{
+  content:"";width:24px;height:1px;background:rgba(92,219,211,0.6);
+}
+.promo-content h3{
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  line-height:0.95;letter-spacing:-0.04em;
+  color:#fff;margin-bottom:1rem;
+}
+.promo-content h3 .promo-accent{
+  font-style:italic;font-weight:300;
+  background:linear-gradient(135deg,#5CDBD3,#015253);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.promo-content p{
+  font-size:1rem;color:rgba(255,255,255,0.6);
+  line-height:1.6;max-width:28rem;margin-bottom:2.25rem;
+}
+.promo-stats{
+  display:flex;gap:32px;margin-bottom:2.5rem;
+}
+.promo-stat-val{
+  font-size:clamp(20px,2.5vw,28px);font-weight:700;
+  letter-spacing:-0.04em;color:#fff;
+}
+.promo-stat-label{
+  font-size:0.6875rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-top:0.25rem;
+}
+.promo-actions{display:flex;gap:20px;flex-wrap:wrap}
+.promo-visual{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.promo-visual .promo-glow{
+  position:absolute;width:120%;height:120%;
+  background:radial-gradient(circle,rgba(1,82,83,0.3) 0%,transparent 60%);
+  filter:blur(60px);
+}
+.promo-visual img{
+  position:relative;width:100%;max-width:500px;
+  filter:drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+}
+@media(max-width:767px){
+  .promo-visual{order:-1}
+  .promo-visual img{max-width:300px;margin:0 auto}
+}
+
+/* ─── PRODUCTS GRID ─── */
+.products-section{
+  position:relative;padding:5rem 1.5rem;
+}
+@media(min-width:768px){.products-section{padding:5rem 2.5rem}}
+.products-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:2rem;max-width:1600px;margin-left:auto;margin-right:auto;
+  flex-wrap:wrap;gap:16px;
+}
+.products-header .nav-arrows{display:flex;gap:8px}
+.nav-arrow{
+  width:42px;height:42px;border-radius:4px;border:1px solid #015253;
+  background:#fff;color:#015253;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:background .15s ease,border-color .15s ease,color .15s ease;
+  flex-shrink:0;box-sizing:border-box;
+}
+.nav-arrow:hover{background:#E6EEEE}
+.nav-arrow:active{background:#015253;color:#fff}
+.nav-arrow svg{stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.products-header h2{
+  font-size:1.5rem;letter-spacing:-0.03em;line-height:1.3;font-weight:700;
+}
+.products-header h2 .accent{
+  background:linear-gradient(135deg,#5CDBD3,#015253);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.section-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.875rem;color:var(--secondary);transition:gap .2s;
+}
+.section-link:hover{gap:10px}
+
+.products-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+  max-width:1600px;margin:0 auto;
+}
+@media(min-width:768px){.products-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.products-grid{grid-template-columns:repeat(5,1fr)}}
+
+.p-card{
+  border-radius:8px;border:1px solid #ECECEC;
+  background:#fff;padding:1.25rem;
+  display:flex;flex-direction:column;gap:15px;
+  box-sizing:border-box;position:relative;
+  transition:box-shadow .2s;cursor:pointer;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .6s,transform .6s,box-shadow .2s;
+}
+.p-card.visible{opacity:1;transform:translateY(0)}
+.p-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.12)}
+.p-card-img{
+  width:100%;aspect-ratio:321/300;overflow:hidden;
+  border-radius:4px;position:relative;background:#fff;
+}
+.p-card-img img{width:100%;height:100%;object-fit:contain;transition:transform .4s}
+.p-card:hover .p-card-img img{transform:scale(1.04)}
+.p-card-badges{
+  position:absolute;top:0.75rem;left:0.75rem;
+  display:flex;flex-direction:column;gap:4px;align-items:flex-start;
+}
+.p-card-badge{
+  border-radius:0.25rem;padding:0.125rem 0.5rem;
+  font-size:0.75rem;font-weight:600;color:#fff;
+  line-height:16px;white-space:nowrap;
+  display:inline-flex;align-items:center;
+}
+.p-card-badge.discount{background:#C90000}
+.p-card-badge.system{background:#015253}
+.p-card-badge.new{background:#015253}
+.p-card-badge.top{background:#D42924}
+.p-card-info{display:flex;flex-direction:column;gap:15px;width:100%}
+.p-card-meta{display:flex;justify-content:space-between;align-items:center;width:100%}
+.p-card-brand{font-size:0.875rem;font-weight:500;color:#015253;line-height:16px}
+.p-card-rating{display:flex;align-items:center;gap:5px}
+.p-card-stars{display:flex;gap:0}
+.p-card-stars svg{width:19px;height:19px}
+.p-card-review-count{font-size:0.6875rem;font-weight:500;color:#000;white-space:nowrap}
+.p-card-title{
+  font-size:1rem;font-weight:400;color:#000;
+  line-height:22px;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+  height:66px;
+}
+.p-card:hover .p-card-title{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.p-card-price-row{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.p-card-price-from{font-size:0.875rem;font-weight:400;color:rgba(0,0,0,0.8);line-height:22px}
+.p-card-price{font-size:1.25rem;font-weight:700;color:#C90000;line-height:normal;white-space:nowrap}
+.p-card-original-price{font-size:0.875rem;font-weight:400;color:rgba(0,0,0,0.8);text-decoration:line-through;line-height:16px;padding:0 0.25rem;white-space:nowrap}
+.p-card-swatches{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.p-card-swatch{width:28px;height:28px;border-radius:4px;border:1px solid #DADADA;flex-shrink:0;cursor:pointer}
+.p-card-more-colors{font-size:0.875rem;font-weight:400;color:rgba(0,0,0,0.8);text-decoration:underline;white-space:nowrap;line-height:22px}
+
+/* ─── AWARDS / NTV ─── */
+.awards-section{
+  position:relative;overflow:hidden;
+  background:linear-gradient(170deg,#013D3E 0%,#011F20 100%);
+  padding:0;
+}
+
+/* Hero row: 2-col text + featured photo */
+.aw-hero{
+  max-width:1600px;margin:0 auto;
+  display:grid;grid-template-columns:1fr;gap:0;
+  min-height:420px;
+}
+@media(min-width:900px){.aw-hero{grid-template-columns:1fr 1fr}}
+
+.aw-hero-text{
+  padding:5rem 1.5rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media(min-width:768px){.aw-hero-text{padding:5rem 2.5rem 4rem}}
+@media(min-width:900px){.aw-hero-text{padding:5rem 0 5rem 2.5rem}}
+.aw-eyebrow{
+  font-size:0.6875rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:#5CDBD3;margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:10px;
+}
+.aw-eyebrow::before{content:'';width:24px;height:2px;background:#5CDBD3;border-radius:1px}
+.aw-hero-text h2{
+  font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.15;letter-spacing:-0.03em;
+  font-weight:800;color:#fff;margin:0 0 1.25rem;
+}
+.aw-hl{
+  background:linear-gradient(135deg,#5CDBD3,#3fb8b0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.aw-hero-text>p{
+  font-size:1rem;color:rgba(255,255,255,.6);line-height:1.7;
+  max-width:500px;margin:0;
+}
+
+.aw-hero-photo{
+  position:relative;overflow:hidden;
+  display:none;
+}
+@media(min-width:900px){.aw-hero-photo{display:block}}
+.aw-hero-photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+
+/* Stats bar */
+.aw-stats{
+  background:rgba(255,255,255,.04);
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.aw-stats-inner{
+  max-width:1600px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:0;
+}
+@media(min-width:768px){.aw-stats-inner{grid-template-columns:repeat(4,1fr)}}
+.aw-stat{
+  padding:1.75rem 1.5rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.aw-stat:last-child{border-right:none}
+@media(max-width:767px){
+  .aw-stat:nth-child(2){border-right:none}
+  .aw-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.06)}
+}
+@media(min-width:768px){.aw-stat{padding:2rem 1.5rem}}
+.aw-stat-num{
+  font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.03em;
+  background:linear-gradient(135deg,#5CDBD3,#fff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:0.375rem;
+}
+.aw-stat-label{
+  font-size:.75rem;color:rgba(255,255,255,.45);
+  letter-spacing:.05em;text-transform:uppercase;font-weight:500;
+}
+
+/* Photo strip */
+.aw-photos{
+  padding:2rem 1.5rem 2.5rem;
+  max-width:1600px;margin:0 auto;
+  position:relative;
+}
+@media(min-width:768px){.aw-photos{padding:2rem 2.5rem 3rem}}
+.aw-photos-label{
+  font-size:0.6875rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:1rem;
+}
+.aw-photos-wrap{position:relative}
+.awards-slider-outer{overflow:hidden;cursor:grab;user-select:none}
+.awards-slider-outer.dragging{cursor:grabbing}
+.awards-slider-track{
+  display:flex;gap:10px;
+  transition:transform .42s cubic-bezier(.25,.46,.45,.94);
+  will-change:transform;
+}
+.awards-slider-track.no-transition{transition:none}
+.awards-slide{
+  flex:0 0 calc((100% - 30px) / 4);min-width:0;
+  border-radius:.5rem;overflow:hidden;position:relative;
+}
+.awards-slide img{
+  width:100%;height:180px;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.awards-slide:hover img{transform:scale(1.06)}
+@media(max-width:1023px){
+  .awards-slide{flex:0 0 calc((100% - 20px) / 3)}
+  .awards-slide img{height:160px}
+}
+@media(max-width:767px){
+  .awards-slide{flex:0 0 calc(50% - 5px)}
+  .awards-slide img{height:140px}
+}
+@media(max-width:479px){
+  .awards-slide{flex:0 0 80%}
+  .awards-slide img{height:180px}
+}
+.awards-nav{
+  position:absolute;top:50%;left:0;right:0;
+  display:flex;justify-content:space-between;
+  transform:translateY(-50%);pointer-events:none;
+  padding:0 0.5rem;z-index:5;
+}
+.awards-nav .nav-arrow{pointer-events:auto}
+
+/* ─── REVIEWS ─── */
+.reviews-section{
+  position:relative;padding:5rem 1.5rem;
+  background:#F5F6FA;
+  overflow:hidden;
+}
+@media(min-width:768px){.reviews-section{padding:5rem 2.5rem}}
+.reviews-inner{max-width:1600px;margin:0 auto}
+.reviews-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:0.75rem;flex-wrap:wrap;gap:16px;
+}
+.reviews-top h2{font-size:1.5rem;letter-spacing:-0.03em;line-height:1.3;font-weight:700;margin:0}
+.reviews-top h2 span{color:#666;font-weight:400;font-size:.875rem;vertical-align:middle;margin-left:0.375rem}
+.reviews-score{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.reviews-score-num{font-size:1.875rem;font-weight:800;letter-spacing:-0.03em;color:#1A1A1A}
+.reviews-stars{display:flex;gap:2px}
+.reviews-stars svg{width:22px;height:22px}
+.reviews-toggle{
+  position:relative;display:flex;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:4px;padding:0.3125rem;
+  margin-bottom:2rem;
+}
+.reviews-pill{
+  position:absolute;top:5px;left:0;
+  height:calc(100% - 10px);width:0;
+  background:#015253;
+  border-radius:4px;
+  transition:transform .5s cubic-bezier(.65,0,.35,1),width .5s cubic-bezier(.65,0,.35,1);
+  z-index:0;box-shadow:0 4px 16px rgba(1,82,83,.2);pointer-events:none;
+}
+.reviews-tab{
+  position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  flex:1;
+  padding:0.625rem;background:transparent;border:none;
+  color:#1a1a1a;font-size:1rem;font-weight:500;
+  cursor:pointer;transition:color .4s;white-space:nowrap;
+  font-family:inherit;
+}
+@media(max-width:640px){.reviews-tab{padding:0.5rem 0.75rem;font-size:0.75rem;gap:4px}}
+.reviews-tab.active{color:#fff}
+.reviews-tab img{width:14px;height:14px;flex-shrink:0}
+.reviews-tab svg{flex-shrink:0}
+.reviews-tab .tab-score{font-weight:700;transition:color .4s}
+.reviews-tab.active .tab-score{color:#fff}
+.reviews-tab .tab-count{font-weight:400;font-size:0.75rem;opacity:.6;transition:color .4s}
+.reviews-tab.active .tab-count{color:rgba(255,255,255,.6)}
+.reviews-grid{
+  display:grid;grid-template-columns:1fr;gap:16px;
+}
+@media(min-width:600px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+.review-card{
+  background:#fff;border-radius:0.5rem;padding:1.5rem;
+  border:1px solid rgba(0,0,0,.06);
+  display:flex;flex-direction:column;gap:12px;
+  transition:box-shadow .25s,transform .25s;
+}
+.review-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-2px);
+}
+.review-card-head{display:flex;align-items:center;gap:12px}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8125rem;font-weight:700;color:#fff;flex-shrink:0;
+  background:#015253;
+}
+.review-meta{display:flex;flex-direction:column;gap:2px}
+.review-name{font-size:.875rem;font-weight:600;color:#1A1A1A;display:flex;align-items:center;gap:6px}
+.review-name svg{width:14px;height:14px;flex-shrink:0}
+.review-card-stars,.review-meta>div:first-child{display:flex;gap:1px}
+.review-card-stars svg,.review-meta>div:first-child svg{width:14px;height:14px}
+.review-text{
+  font-size:.875rem;line-height:1.6;color:#444;
+  flex:1;
+}
+.review-text .review-more{color:#015253;font-weight:500;cursor:pointer;margin-left:0.125rem}
+.review-time{font-size:.75rem;color:#999;margin-top:auto}
+.reviews-bottom{
+  display:flex;justify-content:center;padding-top:2rem;
+}
+.reviews-load-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:2.625rem;padding:0.7rem 1.2rem;
+  border-radius:0.25rem;
+  background:transparent;color:#015253;
+  border:0.125rem solid #015253;
+  font-size:1rem;font-weight:500;
+  cursor:pointer;font-family:inherit;
+  white-space:nowrap;line-height:1.2;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.reviews-load-btn:hover{background:#E3F2F0}
+.reviews-load-btn:active{background:#015253;color:#fff}
+
+/* ─── WHY METZLER ─── */
+.why-section{
+  position:relative;padding:5rem 1.5rem;
+  background:#015253;color:#fff;
+}
+@media(min-width:768px){.why-section{padding:5rem 2.5rem}}
+.why-inner{max-width:1600px;margin:0 auto}
+.why-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:3rem;flex-wrap:wrap;gap:16px;
+}
+.why-top h2{
+  font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-0.03em;font-weight:800;
+  color:#fff;margin:0;
+}
+.why-top p{
+  font-size:0.875rem;color:rgba(255,255,255,.55);max-width:400px;
+  margin:0;line-height:1.5;text-align:right;
+}
+.why-grid{
+  display:grid;grid-template-columns:1fr;gap:0;
+}
+@media(min-width:768px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+.why-card{
+  padding:2rem 1.75rem;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.why-card:last-child{border-right:none}
+@media(max-width:767px){
+  .why-card{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:1.5rem 0}
+  .why-card:last-child{border-bottom:none}
+}
+.why-card-num{
+  font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;
+  background:linear-gradient(135deg,#5CDBD3,#fff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:0.5rem;
+}
+.why-card h3{font-size:0.875rem;font-weight:600;margin-bottom:0.375rem;letter-spacing:0;color:#fff}
+.why-card p{font-size:0.8125rem;line-height:1.55;color:rgba(255,255,255,.5);margin:0}
+
+/* ─── AWARDS CAROUSEL ─── */
+.badges-section{
+  position:relative;padding:4rem 1.5rem 0;
+
+  overflow:hidden;
+}
+@media(min-width:768px){.badges-section{padding:4rem 2.5rem 0}}
+.badges-inner{max-width:1600px;margin:0 auto}
+.badges-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:2.5rem;flex-wrap:wrap;gap:16px;
+}
+.badges-header h2{font-size:1.5rem;letter-spacing:-0.03em;font-weight:700;margin:0}
+.badges-nav{display:flex;gap:8px}
+.badges-track-wrap{overflow:hidden}
+.badges-track{
+  display:flex;gap:20px;
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+.badge-card{
+  flex:0 0 280px;border-radius:16px;
+  background:#fff;border:1px solid rgba(0,0,0,.06);
+  padding:2rem 1.5rem;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;
+  gap:16px;text-align:center;
+  transition:box-shadow .3s,transform .3s,border-color .3s;
+}
+.badge-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
+.badge-card.active{border-color:#015253;box-shadow:0 8px 32px rgba(1,82,83,.12)}
+.badge-card-img{
+  width:120px;height:120px;object-fit:contain;
+  filter:grayscale(.2);transition:filter .3s;
+}
+.badge-card:hover .badge-card-img,.badge-card.active .badge-card-img{filter:grayscale(0)}
+.badge-card h4{font-size:1rem;font-weight:700;letter-spacing:-0.02em;margin:0}
+.badge-card .badge-year{font-size:.75rem;color:#999;font-weight:500}
+.badge-detail{
+  margin-top:2rem;border-radius:16px;
+  background:var(--background);border:1px solid rgba(0,0,0,.06);
+  padding:2.5rem;
+  display:none;
+  animation:bdFadeIn .35s ease;
+}
+.badge-detail.visible{display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+@keyframes bdFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.badge-detail-img{
+  width:160px;height:160px;object-fit:contain;flex-shrink:0;
+}
+.badge-detail-text{flex:1;min-width:240px}
+.badge-detail-text h3{font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.badge-detail-text .badge-detail-year{font-size:0.8125rem;color:#015253;font-weight:600;margin-bottom:0.75rem}
+.badge-detail-text p{font-size:0.875rem;line-height:1.65;color:#555;margin:0}
+
+/* ─── FAQ ─── */
+.faq{
+  position:relative;padding:5rem 1.5rem;
+}
+@media(min-width:768px){.faq{padding:5rem 2.5rem}}
+.faq-inner{max-width:1600px;margin:0 auto}
+@media(min-width:1024px){
+  .faq-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+}
+.faq-header{margin-bottom:2.5rem}
+@media(min-width:1024px){.faq-header{margin-bottom:0;position:sticky;top:170px}}
+.faq-label{
+  font-size:0.8125rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:#015253;margin-bottom:1.25rem;
+}
+.faq-header h2{
+  font-size:clamp(2.2rem,5vw,3.6rem);line-height:.95;letter-spacing:-0.04em;font-weight:800;
+}
+.faq-list{border-top:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:1.75rem 0;text-align:left;background:none;border:none;cursor:pointer;
+  font-family:inherit;gap:16px;
+}
+.faq-btn .faq-left{display:flex;align-items:baseline;gap:20px}
+.faq-btn .faq-num{
+  font-size:0.8125rem;font-weight:500;letter-spacing:.08em;
+  color:#999;min-width:24px;
+}
+.faq-btn .faq-q{font-size:clamp(16px,2.2vw,22px);letter-spacing:-0.03em;font-weight:600;color:#1A1A1A}
+.faq-btn .faq-icon{
+  color:#015253;font-size:1.5rem;font-weight:300;
+  flex-shrink:0;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.faq-btn .faq-icon.open{transform:rotate(45deg)}
+.faq-answer{
+  overflow:hidden;max-height:0;opacity:0;
+  transition:max-height .4s cubic-bezier(.22,1,.36,1),opacity .4s cubic-bezier(.22,1,.36,1);
+}
+.faq-answer.open{opacity:1}
+.faq-answer p{
+  padding:0 0 1.75rem 2.75rem;
+  max-width:640px;color:#666;line-height:1.7;font-size:0.875rem;margin:0;
+}
+
+/* ─── FOOTER (Metzler Design System) ─── */
+.mzf{background:#01292A;margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}
+.mzf-inner{max-width:1600px;margin:0 auto;padding:1.25rem 1.5rem 0;box-sizing:border-box}
+@media(min-width:769px){.mzf-inner{padding:1.25rem 2.5rem 0}}
+.mzf-head{font-size:1rem;font-weight:700;color:#fff;line-height:normal;margin:0;white-space:nowrap}
+.mzf-link{color:#5CDBD3;text-decoration:none;line-height:24px;transition:opacity .15s;cursor:pointer}
+.mzf-link:hover{text-decoration:underline;opacity:0.8}
+
+/* Row 1 — navigation columns */
+.mzf-row1{
+  display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;
+  gap:32px 20px;padding:10px 0 40px;border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.mzf-col{display:flex;flex-direction:column;gap:30px;flex-shrink:0;min-width:140px}
+.mzf-brand{width:280px;min-width:200px;display:flex;flex-direction:column;gap:25px;flex-shrink:0;align-items:flex-start}
+.mzf-brand img{height:40px;width:auto;object-fit:contain}
+.mzf-p{font-size:1rem;font-weight:400;color:rgba(255,255,255,0.5);line-height:22px;margin:0}
+.mzf-tag{font-size:1.125rem;font-weight:700;color:#fff;line-height:normal;margin:0}
+.mzf-contact{width:200px;min-width:160px;display:flex;flex-direction:column;gap:30px;flex-shrink:0}
+.mzf-contact-block{display:flex;flex-direction:column;gap:5px}
+.mzf-contact-block small{font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:16px}
+.mzf-links{display:flex;flex-direction:column;gap:20px}
+.mzf-navlink{font-size:1rem;font-weight:400;color:rgba(255,255,255,0.5);line-height:18px;cursor:pointer;text-decoration:none;transition:color .15s}
+.mzf-navlink:hover{color:#fff}
+.mzf-social-wrap{display:flex;flex-direction:column;gap:40px;flex-shrink:0}
+.mzf-social{display:flex;gap:10px;align-items:center}
+.mzf-soc{width:35px;height:35px;border-radius:70px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .15s,transform .15s}
+.mzf-soc:hover{background:rgba(255,255,255,0.2);transform:scale(1.1)}
+.mzf-soc img{object-fit:contain;display:block}
+.mzf-quality{display:flex;gap:10px;align-items:flex-end}
+.mzf-quality img{height:72px;width:auto;object-fit:contain}
+
+/* Row 2 — shipping + payment + Trusted Shops slider */
+.mzf-row2{
+  display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;
+  padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.mzf-pay-group{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.mzf-pay-group.grow{flex:1 1 auto;min-width:0}
+.mzf-pay-label{font-family:'Inter','Helvetica Neue',Arial,sans-serif;font-size:0.875rem;font-weight:400;color:#fff;line-height:20px}
+.mzf-pay-badges{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+.mzf-pay-badges img{width:53px;height:30px;flex-shrink:0;display:block}
+.mzf-trusted{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:rgba(255,255,255,0.08);border-radius:60px;padding:10px 15px;width:360px;max-width:100%;flex-shrink:0;
+}
+.mzf-ts-rate{display:flex;gap:10px;align-items:center;flex:1;min-width:0;height:32px}
+.mzf-ts-logo{width:30px;height:30px;border-radius:50%;object-fit:contain;flex-shrink:0}
+.mzf-ts-col{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.mzf-ts-stars{display:flex;gap:3px;width:80px;align-items:center}
+.mzf-ts-stars svg{width:15px;height:15px}
+.mzf-ts-text{display:flex;flex-wrap:wrap;column-gap:5px;row-gap:1px;align-items:center;min-width:0}
+.mzf-ts-score{font-size:0.8125rem;color:#fff;white-space:nowrap;line-height:14px}
+.mzf-ts-sub{font-size:0.8125rem;color:#5CDBD3;white-space:nowrap;line-height:14px}
+.mzf-ts-nav{display:flex;gap:6px;flex-shrink:0;align-items:center}
+.mzf-ts-arr{width:30px;height:30px;border-radius:50%;background:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0;transition:background .12s}
+.mzf-ts-arr:hover{background:#E6EEEE}
+@keyframes tslidein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+/* Row 3 — legal */
+.mzf-legal{
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding:20px 0;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:center;
+}
+.mzf-legal a{font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:16px;white-space:nowrap;text-decoration:none;cursor:pointer;transition:color .15s}
+.mzf-legal a:hover{color:rgba(255,255,255,0.9)}
+
+/* Row 4 — copyright */
+.mzf-copy{display:flex;justify-content:center;align-items:center;padding:16px 0 20px;text-align:center}
+.mzf-copy span{font-size:0.875rem;color:#fff;line-height:16px}
+.mzf-copy a{color:rgba(255,255,255,0.5);text-decoration:underline}
+
+@media(max-width:900px){
+  .mzf-row1{flex-direction:column;gap:30px}
+  .mzf-brand,.mzf-contact{width:100%}
+  .mzf-social-wrap{flex-direction:row;flex-wrap:wrap;gap:30px 40px}
+  .mzf-row2{flex-direction:column}
+  .mzf-trusted{width:100%}
+}
+
+/* ─── PARALLAX UTILITY ─── */
+[data-parallax]{will-change:transform}
+
+/* ─── SCROLL REVEAL ─── */
+[data-reveal]{
+  opacity:0;transform:translateY(40px);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+}
+[data-reveal].visible{opacity:1;transform:translateY(0)}
+
+.md-hidden{display:none}
+@media(min-width:768px){.md-hidden{display:block}}
+
+/* ════════════════════════════════════════════
+   PRODUCTION / MANUFAKTUR PAGE
+   ════════════════════════════════════════════ */
+
+/* ─── CINEMATIC VIDEO HERO ─── */
+.cine-hero{
+  position:relative;overflow:hidden;color:#fff;
+  background:#021414;
+  /* Full viewport height — no max cap, so on big monitors the hero uses the
+     whole screen height and the contained video scales up to fill it
+     (vertically full height, horizontally auto). */
+  height:100vh;height:100svh;
+  min-height:600px;
+  --hdr-h:78px; /* mobile header height */
+}
+@media(min-width:769px){.cine-hero{--hdr-h:159px}} /* desktop 3-row header */
+/* Video starts below the fixed header so it's never hidden behind it */
+.cine-media{position:absolute;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:0;cursor:pointer;background:#010a0a}
+/* contain = the full frame is always visible (no crop); its height scales with the hero/browser height */
+.cine-media video{width:100%;height:100%;object-fit:contain;display:block}
+.cine-scrim{
+  position:absolute;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(to right, rgba(2,16,16,0.78) 0%, rgba(2,16,16,0.32) 40%, rgba(2,16,16,0) 66%),
+    linear-gradient(to top, rgba(1,11,11,0.95) 0%, rgba(1,11,11,0.55) 22%, rgba(1,11,11,0) 52%),
+    linear-gradient(to bottom, rgba(1,16,16,0.7) 0%, rgba(1,16,16,0) 24%);
+}
+.cine-hero.grain::after{z-index:2}
+
+/* Bottom editorial content */
+.cine-content{
+  position:absolute;z-index:5;left:0;right:0;bottom:78px;
+  max-width:1600px;margin:0 auto;padding:0 1.5rem;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;
+}
+@media(min-width:769px){.cine-content{padding:0 2.5rem;bottom:96px}}
+.cine-lead{max-width:780px}
+.cine-lead .label{display:block;color:var(--mint);margin-bottom:0.7rem;letter-spacing:0.24em;font-size:0.625rem}
+.cine-hero h1{
+  font-size:clamp(2rem,4.5vw,3.5rem);
+  line-height:1.02;letter-spacing:-0.03em;font-weight:700;
+  text-shadow:0 2px 50px rgba(0,0,0,0.45);
+}
+.cine-hero h1 em{font-style:normal;font-weight:inherit;color:var(--mint)}
+.cine-sub{
+  margin-top:0.9rem;max-width:44ch;
+  font-size:clamp(0.9375rem,1.1vw,1.0625rem);line-height:1.5;color:rgba(255,255,255,0.85);
+}
+@media(max-width:768px){
+  .cine-content{flex-direction:column;align-items:flex-start;gap:1.75rem}
+}
+
+/* Step ticker + progress */
+.cine-ticker{
+  position:absolute;z-index:5;left:0;right:0;bottom:0;
+  border-top:1px solid rgba(255,255,255,0.12);
+  background:linear-gradient(to top,rgba(0,9,9,0.88),rgba(0,9,9,0.25));
+  backdrop-filter:blur(8px);
+}
+.cine-progress{position:absolute;top:-1px;left:0;right:0;height:2px;background:rgba(255,255,255,0.14)}
+.cine-progress span{display:block;height:100%;width:0;background:var(--mint);transition:width .25s linear}
+.cine-steps{
+  max-width:1600px;margin:0 auto;padding:0.85rem 1.5rem;
+  display:flex;align-items:center;
+}
+@media(min-width:769px){.cine-steps{padding:1.05rem 2.5rem}}
+.cine-step{
+  flex:1;display:flex;align-items:center;gap:0.6rem;
+  font-size:0.8125rem;letter-spacing:0.04em;color:rgba(255,255,255,0.5);
+  transition:color .35s ease;white-space:nowrap;
+}
+.cine-step + .cine-step{padding-left:clamp(0.75rem,3vw,2rem)}
+.cine-step b{
+  font-size:0.6875rem;font-weight:700;color:rgba(255,255,255,0.38);
+  letter-spacing:0.12em;transition:color .35s ease;
+  font-variant-numeric:tabular-nums;
+}
+.cine-step.active{color:#fff}
+.cine-step.active b{color:var(--mint)}
+@media(max-width:560px){
+  .cine-steps{padding:0.7rem 1.1rem}
+  .cine-step{font-size:0.6875rem;gap:0.4rem}
+  .cine-step .lbl{display:none}
+  .cine-step.active .lbl{display:inline}
+}
+
+/* ─── ÜBER METZLER ─── */
+.manufaktur{padding:4.5rem 1.5rem;background:#F2F6F6;color:var(--g900)}
+@media(min-width:768px){.manufaktur{padding:6rem 2.5rem}}
+.manufaktur-inner{max-width:1600px;margin:0 auto}
+.manu-head{
+  display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
+}
+@media(min-width:880px){.manu-head{grid-template-columns:1.05fr 0.95fr;gap:3.5rem}}
+.manufaktur .label{color:var(--brand);margin-bottom:1rem;display:block}
+.manufaktur h2{
+  font-size:clamp(1.875rem,3.8vw,3rem);
+  line-height:1.08;letter-spacing:-0.025em;font-weight:700;margin:0;
+}
+.manufaktur h2 .hl{color:var(--brand)}
+.manu-head p{
+  margin:0;font-size:1.0625rem;line-height:1.65;color:var(--muted-foreground);
+}
+@media(max-width:879px){.manu-head p{font-size:1rem}}
+/* Production-image collage — cinematic feature + thumbnails */
+.manu-gallery{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-top:2.75rem}
+.manu-gallery figure{
+  position:relative;margin:0;overflow:hidden;border-radius:8px;aspect-ratio:4/3;
+  background:var(--card);box-shadow:0 18px 42px -30px rgba(1,41,42,0.45);
+}
+.manu-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover){.manu-gallery figure:hover img{transform:scale(1.04)}}
+/* Desktop: horizontal row that expands the hovered image */
+@media(min-width:768px){
+  .manu-gallery{display:flex;gap:0.65rem;height:24rem;margin-top:3.25rem}
+  .manu-gallery figure{flex:1 1 0;min-width:0;aspect-ratio:auto;transition:flex-grow .5s cubic-bezier(.22,1,.36,1)}
+  .manu-gallery:hover figure{flex-grow:0.65}
+  .manu-gallery figure:hover{flex-grow:2.6}
+}
+/* stats band */
+.manufaktur-stats{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:2.25rem 1.5rem;
+  margin-top:3rem;
+}
+@media(min-width:768px){.manufaktur-stats{grid-template-columns:repeat(4,1fr);gap:2.5rem;margin-top:3.5rem}}
+.manufaktur-stat{text-align:center}
+.manufaktur-stat .num{font-size:clamp(2rem,3.2vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:var(--brand);line-height:1}
+.manufaktur-stat .lbl{margin-top:.55rem;font-size:0.9375rem;color:var(--muted-foreground);line-height:1.4}
+
+/* ─── PROCESS (Upgrade-style steps) ─── */
+.process{position:relative;padding:4rem 0;background:var(--background);color:var(--foreground)}
+@media(min-width:768px){.process{padding:5.5rem 0}}
+.process-head{max-width:1600px;margin:0 auto 2rem;padding:0 1.5rem}
+@media(min-width:768px){.process-head{padding:0 2.5rem;margin-bottom:2.5rem}}
+.process-head h2{
+  font-family:var(--font);font-weight:700;
+  font-size:clamp(2rem,4vw,2.875rem);line-height:1.15;letter-spacing:-0.04em;color:var(--foreground);
+}
+.process-head p{margin-top:1.1rem;max-width:58ch;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
+.process-grid{
+  display:grid;grid-template-columns:1fr;gap:0;
+  max-width:1600px;margin:0 auto;padding:0 1.5rem;
+}
+@media(min-width:600px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:768px){.process-grid{padding:0 2.5rem}}
+.process-step{
+  background:transparent;padding:2.5rem 1.5rem;
+  display:flex;flex-direction:column;gap:1.25rem;
+  border-right:1px solid rgba(0,0,0,0.12);
+  transition:background .3s;
+}
+@media(min-width:1024px){.process-step{padding:3rem 2rem;min-height:22rem}}
+.process-step:last-child{border-right:none}
+@media(hover:hover){.process-step:hover{background:rgba(1,82,83,0.05)}}
+/* dividers — 2-col (tablet) */
+@media(max-width:1023px){
+  .process-step:nth-child(2n){border-right:none}
+  .process-step{border-bottom:1px solid rgba(0,0,0,0.12)}
+  .process-step:nth-last-child(-n+2){border-bottom:none}
+}
+/* dividers — 1-col (mobile) */
+@media(max-width:599px){
+  .process-step{border-right:none;border-bottom:1px solid rgba(0,0,0,0.12)}
+  .process-step:last-child{border-bottom:none}
+}
+.process-step-num{font-size:4rem;letter-spacing:-0.04em;line-height:1;font-weight:700;color:var(--brand)}
+.process-step-icon{
+  width:3rem;height:3rem;border:1.5px solid var(--brand);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--brand);
+}
+.process-step-icon svg{width:22px;height:22px}
+.process-step h3{font-size:clamp(1.375rem,2.4vw,1.75rem);letter-spacing:-0.03em;line-height:1.1;color:var(--foreground);font-weight:700}
+.process-step .line{height:1px;width:3rem;background:var(--brand);transition:width .7s}
+@media(hover:hover){.process-step:hover .line{width:100%}}
+.process-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.6}
+
+/* ─── QUALITY BAND ─── */
+.quality{position:relative;overflow:hidden;background-image:var(--gradient-brand);color:#fff;padding:4.5rem 1.5rem}
+@media(min-width:768px){.quality{padding:6.5rem 2.5rem}}
+.quality .hero-ambient1{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,#013a3b 0%,transparent 55%);opacity:.6;pointer-events:none}
+.quality-inner{position:relative;z-index:2;max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
+@media(min-width:900px){.quality-inner{grid-template-columns:1fr 1fr;gap:4rem}}
+.quality-text .label{color:var(--mint);margin-bottom:1.25rem;display:block}
+.quality-text h2{font-size:clamp(1.75rem,3.5vw,2.75rem);line-height:1.15;letter-spacing:-0.02em;font-weight:700}
+.quality-text p{margin-top:1.5rem;font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.82)}
+.quality-list{display:flex;flex-direction:column;gap:1.25rem}
+.quality-item{display:flex;gap:1rem;align-items:flex-start}
+.quality-item-check{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;color:var(--mint);
+}
+.quality-item-check svg{width:16px;height:16px}
+.quality-item h4{font-size:1.0625rem;font-weight:700;color:#fff}
+.quality-item p{margin-top:.35rem;font-size:0.9375rem;line-height:1.55;color:rgba(255,255,255,0.72)}
+
+/* ─── CTA ─── */
+.prod-cta{padding:4.5rem 1.5rem 5.5rem}
+@media(min-width:768px){.prod-cta{padding:6.5rem 2.5rem 7rem}}
+.prod-cta-inner{max-width:1600px;margin:0 auto}
+.prod-cta-head{
+  display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;margin-bottom:2.5rem;
+}
+@media(min-width:880px){.prod-cta-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem;margin-bottom:3rem}}
+.prod-cta .label{color:var(--brand);display:block;margin-bottom:1rem}
+.prod-cta h2{font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;font-weight:700;margin:0}
+.prod-cta-head p{margin:0;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
+.prod-cta-link{display:inline-flex;align-items:center;gap:0.55rem;margin-top:1.4rem;color:var(--brand);font-weight:600;font-size:0.9375rem;text-decoration:none}
+.prod-cta-link svg{width:16px;height:16px}
+.prod-cta-link:hover{text-decoration:underline}
+/* Category image cards */
+.prod-cta-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
+@media(min-width:768px){.prod-cta-cards{grid-template-columns:repeat(4,1fr);gap:1rem}}
+.cta-card{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/5;display:block;text-decoration:none;background:var(--card)}
+.cta-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+@media(hover:hover){.cta-card:hover img{transform:scale(1.06)}}
+.cta-card-overlay{
+  position:absolute;inset:0;z-index:2;
+  background:linear-gradient(180deg,transparent 35%,rgba(0,10,10,0.75) 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.1rem;
+}
+.cta-card-line{height:2px;width:28px;background:var(--mint);margin-bottom:0.65rem;transition:width .5s ease}
+@media(hover:hover){.cta-card:hover .cta-card-line{width:60px}}
+.cta-card-name{font-family:var(--font);font-size:clamp(1rem,1.5vw,1.25rem);font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:1.1}
+
+/* ════ UNIFIED CONTENT GUTTER ════
+   Header, footer and every content section share the same left/right gutter
+   and 1600px max-width, so their content edges align on all displays. */
+:root{--gutter:1.5rem}
+@media(min-width:769px){:root{--gutter:2.5rem}}
+.hdr-row1-inner,.hdr-row2-inner,.nav-inner,.hdr-compact-inner,.hdr-mobile-bar,.hdr-mobile-topbar,
+.mzf-inner,
+.cine-content,.cine-steps,.process-head,.process-grid,
+.manufaktur-inner,.quality-inner,.prod-cta-inner{
+  padding-left:var(--gutter)!important;
+  padding-right:var(--gutter)!important;
+}
+/* These sections are full-bleed; the gutter + 1600px max-width live on their inner wrapper
+   (same model as header/footer), so content edges match on monitors wider than 1600px. */
+.manufaktur,.quality,.prod-cta{padding-left:0!important;padding-right:0!important}
+/* Mobile (single column): drop the card's own side padding so step content aligns with the
+   container gutter while the card/background stays inside the grid (not edge-to-edge). */
+@media(max-width:599px){.process-step{padding-left:0!important;padding-right:0!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ROW 1 — GREEN TOP BAR ═══ -->
+<div class="hdr-row1">
+  <div class="hdr-row1-inner">
+    <div class="hdr-badges">
+      <span class="hdr-badge">Original Metzler Qualität seit 2013</span>
+      <span class="hdr-badge">über 1.8 Mio. zufriedene Kunden</span>
+      <span class="hdr-badge">10 Jahre Metzler Garantie</span>
+      <span class="hdr-badge">TrustedShops Käuferschutz</span>
+      <span class="hdr-badge">Kauf auf Rechnung</span>
+    </div>
+    <div class="hdr-links">
+      <a href="#" class="hdr-link">Kontakt</a>
+      <a href="#" class="hdr-link">Zahlung und Versand</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HEADER ROW 2 — LOGO + SEARCH + ICONS ═══ -->
+<div class="hdr-row2">
+  <div class="hdr-row2-inner">
+    <a href="main-page.html" class="hdr-logo"><img src="logo.svg" alt="Metzler" /></a>
+    <div class="hdr-searchbar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Suchen — Türklingel, Briefkasten, Sprechanlage..." />
+      <button class="search-clear" aria-label="Suche löschen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="hdr-icons">
+      <a href="#" class="hdr-icon-btn" aria-label="Konto">
+        <svg width="21" height="20" viewBox="0 0 20.6 19.8" fill="none"><path d="M12.14 14.034C15.107 14.034 17.914 15.378 19.774 17.689L20.426 18.499C20.703 18.843 20.649 19.346 20.305 19.623C19.961 19.9 19.457 19.846 19.18 19.502L18.528 18.692C16.972 16.758 14.623 15.634 12.14 15.634H8.462C5.98 15.634 3.631 16.758 2.074 18.692L1.423 19.502C1.146 19.846 0.642 19.9 0.298 19.623C-0.046 19.346 -0.1 18.843 0.177 18.499L0.828 17.689C2.688 15.378 5.495 14.034 8.462 14.034H12.14Z" fill="currentColor"/><path d="M15.149 6.313C15.149 3.742 13.011 1.6 10.3 1.6C7.59 1.6 5.451 3.742 5.451 6.313C5.451 8.883 7.59 11.024 10.3 11.024V12.625C6.671 12.625 3.851 9.865 3.851 6.313C3.851 2.826 6.739 0 10.3 0C13.862 0 16.75 2.826 16.75 6.313C16.75 9.865 13.864 12.625 10.3 12.625V11.024C13.011 11.024 15.149 8.883 15.149 6.313Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#" class="hdr-icon-btn" aria-label="Warenkorb">
+        <svg width="22" height="20" viewBox="0 0 21.3 19.41" fill="none"><path d="M18.463 0C19.411 0 20.197 0.736 20.259 1.683L21.294 17.495C21.362 18.533 20.538 19.412 19.498 19.412H1.8C0.76 19.412 -0.064 18.533 0.004 17.495L1.04 1.683C1.102 0.736 1.888 0 2.836 0H18.463ZM2.836 1.6C2.731 1.6 2.643 1.682 2.636 1.787L1.6 17.6C1.593 17.715 1.684 17.813 1.8 17.813H19.498C19.613 17.813 19.705 17.715 19.697 17.6L18.662 1.787C18.655 1.682 18.568 1.6 18.463 1.6H2.836Z" fill="currentColor"/><path d="M14.033 5.55V6.112C14.033 7.382 13.003 8.412 11.733 8.412H9.566C8.295 8.412 7.266 7.382 7.266 6.112V5.55C7.266 5.163 6.952 4.849 6.566 4.849C6.179 4.849 5.866 5.163 5.866 5.55V6.112C5.866 8.156 7.522 9.813 9.566 9.813H11.733C13.776 9.813 15.432 8.156 15.432 6.112V5.55C15.432 5.163 15.119 4.849 14.733 4.849C14.346 4.849 14.033 5.163 14.033 5.55Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HEADER ROW 3 — CATEGORY NAV ═══ -->
+<header class="nav" id="mainNav">
+  <div class="nav-inner">
+    <button class="nav-alle-btn" id="navAlleBtn" aria-label="Alle Kategorien">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h18"/></svg>
+      Alle
+    </button>
+    <div class="nav-categories" id="navCategories">
+      <a href="#" class="nav-cat" data-menu="briefkasten">Briefkästen</a>
+      <a href="#" class="nav-cat" data-menu="paketboxen">Paketboxen</a>
+      <a href="#" class="nav-cat" data-menu="sprechanlagen">Sprechanlagen</a>
+      <a href="#" class="nav-cat" data-menu="sicherheit">Sicherheitstechnik</a>
+      <a href="#" class="nav-cat" data-menu="tuerklingeln">Türklingeln</a>
+      <a href="#" class="nav-cat" data-menu="hausnummern">Hausnummern</a>
+      <a href="#" class="nav-cat">Mülltonnenboxen</a>
+      <a href="#" class="nav-cat" data-menu="leuchten">Außenleuchten</a>
+      <a href="#" class="nav-cat" data-menu="garten">Garten</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ COMPACT STICKY HEADER ═══ -->
+<div class="hdr-compact" id="hdrCompact">
+  <div class="hdr-compact-inner">
+    <a href="main-page.html" class="hdr-logo"><img src="logo.svg" alt="Metzler" /></a>
+    <button class="hdr-menu-btn" id="menuBtn" aria-label="Kategorien">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h18"/></svg>
+      Alle Kategorien
+    </button>
+    <div class="hdr-searchbar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4" stroke-linecap="round"/></svg>
+      <input type="text" placeholder="Suchen — Türklingel, Briefkasten, Sprechanlage..." />
+      <button class="search-clear" aria-label="Suche löschen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="hdr-icons">
+      <a href="#" class="hdr-icon-btn" aria-label="Konto">
+        <svg width="21" height="20" viewBox="0 0 20.6 19.8" fill="none"><path d="M12.14 14.034C15.107 14.034 17.914 15.378 19.774 17.689L20.426 18.499C20.703 18.843 20.649 19.346 20.305 19.623C19.961 19.9 19.457 19.846 19.18 19.502L18.528 18.692C16.972 16.758 14.623 15.634 12.14 15.634H8.462C5.98 15.634 3.631 16.758 2.074 18.692L1.423 19.502C1.146 19.846 0.642 19.9 0.298 19.623C-0.046 19.346 -0.1 18.843 0.177 18.499L0.828 17.689C2.688 15.378 5.495 14.034 8.462 14.034H12.14Z" fill="currentColor"/><path d="M15.149 6.313C15.149 3.742 13.011 1.6 10.3 1.6C7.59 1.6 5.451 3.742 5.451 6.313C5.451 8.883 7.59 11.024 10.3 11.024V12.625C6.671 12.625 3.851 9.865 3.851 6.313C3.851 2.826 6.739 0 10.3 0C13.862 0 16.75 2.826 16.75 6.313C16.75 9.865 13.864 12.625 10.3 12.625V11.024C13.011 11.024 15.149 8.883 15.149 6.313Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#" class="hdr-icon-btn" aria-label="Warenkorb">
+        <svg width="22" height="20" viewBox="0 0 21.3 19.41" fill="none"><path d="M18.463 0C19.411 0 20.197 0.736 20.259 1.683L21.294 17.495C21.362 18.533 20.538 19.412 19.498 19.412H1.8C0.76 19.412 -0.064 18.533 0.004 17.495L1.04 1.683C1.102 0.736 1.888 0 2.836 0H18.463ZM2.836 1.6C2.731 1.6 2.643 1.682 2.636 1.787L1.6 17.6C1.593 17.715 1.684 17.813 1.8 17.813H19.498C19.613 17.813 19.705 17.715 19.697 17.6L18.662 1.787C18.655 1.682 18.568 1.6 18.463 1.6H2.836Z" fill="currentColor"/><path d="M14.033 5.55V6.112C14.033 7.382 13.003 8.412 11.733 8.412H9.566C8.295 8.412 7.266 7.382 7.266 6.112V5.55C7.266 5.163 6.952 4.849 6.566 4.849C6.179 4.849 5.866 5.163 5.866 5.55V6.112C5.866 8.156 7.522 9.813 9.566 9.813H11.733C13.776 9.813 15.432 8.156 15.432 6.112V5.55C15.432 5.163 15.119 4.849 14.733 4.849C14.346 4.849 14.033 5.163 14.033 5.55Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MOBILE HEADER ═══ -->
+<div class="hdr-mobile" id="hdrMobile">
+  <div class="hdr-mobile-topbar" id="mobileTopbar">
+    <span><strong>1.5 Mio.</strong> Kunden</span>
+    <span><strong>10 Jahre</strong> Metzler Garantie</span>
+  </div>
+  <div class="hdr-mobile-bar">
+    <div class="hdr-mobile-left">
+      <button class="hdr-mobile-btn" id="mobileMenuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h12M3 18h18" stroke="#333" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hdr-mobile-btn" aria-label="Suchen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <a href="/" class="hdr-mobile-logo-link">
+      <img src="logo.svg" alt="Metzler" class="hdr-mobile-logo" />
+    </a>
+    <div class="hdr-mobile-right">
+      <a href="#" class="hdr-mobile-btn" aria-label="Konto">
+        <svg viewBox="0 0 20.6 19.8" fill="none"><path d="M12.14 14.034C15.107 14.034 17.914 15.378 19.774 17.689L20.426 18.499C20.703 18.843 20.649 19.346 20.305 19.623C19.961 19.9 19.457 19.846 19.18 19.502L18.528 18.692C16.972 16.758 14.623 15.634 12.14 15.634H8.462C5.98 15.634 3.631 16.758 2.074 18.692L1.423 19.502C1.146 19.846 0.642 19.9 0.298 19.623C-0.046 19.346 -0.1 18.843 0.177 18.499L0.828 17.689C2.688 15.378 5.495 14.034 8.462 14.034H12.14Z" fill="currentColor"/><path d="M15.149 6.313C15.149 3.742 13.011 1.6 10.3 1.6C7.59 1.6 5.451 3.742 5.451 6.313C5.451 8.883 7.59 11.024 10.3 11.024V12.625C6.671 12.625 3.851 9.865 3.851 6.313C3.851 2.826 6.739 0 10.3 0C13.862 0 16.75 2.826 16.75 6.313C16.75 9.865 13.864 12.625 10.3 12.625V11.024C13.011 11.024 15.149 8.883 15.149 6.313Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#" class="hdr-mobile-btn" aria-label="Warenkorb">
+        <svg viewBox="0 0 21.3 19.41" fill="none"><path d="M18.463 0C19.411 0 20.197 0.736 20.259 1.683L21.294 17.495C21.362 18.533 20.538 19.412 19.498 19.412H1.8C0.76 19.412 -0.064 18.533 0.004 17.495L1.04 1.683C1.102 0.736 1.888 0 2.836 0H18.463ZM2.836 1.6C2.731 1.6 2.643 1.682 2.636 1.787L1.6 17.6C1.593 17.715 1.684 17.813 1.8 17.813H19.498C19.613 17.813 19.705 17.715 19.697 17.6L18.662 1.787C18.655 1.682 18.568 1.6 18.463 1.6H2.836Z" fill="currentColor"/><path d="M14.033 5.55V6.112C14.033 7.382 13.003 8.412 11.733 8.412H9.566C8.295 8.412 7.266 7.382 7.266 6.112V5.55C7.266 5.163 6.952 4.849 6.566 4.849C6.179 4.849 5.866 5.163 5.866 5.55V6.112C5.866 8.156 7.522 9.813 9.566 9.813H11.733C13.776 9.813 15.432 8.156 15.432 6.112V5.55C15.432 5.163 15.119 4.849 14.733 4.849C14.346 4.849 14.033 5.163 14.033 5.55Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SIDE MENU ═══ -->
+<div class="side-overlay" id="sideOverlay"></div>
+<nav class="side-menu" id="sideMenu">
+  <div class="side-menu-header">
+    <img src="logo.svg" alt="Metzler" />
+    <button class="side-menu-close" id="sideClose" aria-label="Schließen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="side-menu-list">
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>Briefkästen</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>Paketboxen</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="7" width="14" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>Mülltonnenboxen</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="9" r="3"/><path d="M9 16h6"/></svg>Sprechanlagen</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8 4 4 4 4 4v8c0 5 8 10 8 10s8-5 8-10V4s-4 0-8-2z"/></svg>Sicherheitstechnik</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>Türklingeln</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 8v8M12 8v8M15 8v8"/></svg>Hausnummern</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18h6M12 2v1M4.22 4.22l.7.7M1 12h1M4.22 19.78l.7-.7M12 21v1M19.78 19.78l-.7-.7M23 12h-1M19.78 4.22l-.7.7"/><circle cx="12" cy="12" r="5"/></svg>Außenleuchten</a>
+    <a href="#" class="side-menu-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V8M5 12c0-4 3-8 7-10 4 2 7 6 7 10s-3 6-7 8c-4-2-7-4-7-8z"/></svg>Garten</a>
+  </div>
+</nav>
+
+<!-- ═══ MEGA MENUS ═══ -->
+<div class="mega-menu" id="mega-briefkasten">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/einfamilien_briefkasten.png" alt="Einfamilien Briefkasten"><span class="mega-item-label">Einfamilien Briefkasten</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/briefkasten_ohne_gravur.png" alt="Briefkasten ohne Gravur"><span class="mega-item-label">Briefkasten ohne Gravur</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/standbriefkästen.png" alt="Standbriefkästen"><span class="mega-item-label">Standbriefkästen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/briefkasten_mit_klingel.png" alt="Mit Klingel & Sprechanlage"><span class="mega-item-label">Mit Klingel & Sprechanlage</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/mehrfamilien_briefkästen.png" alt="Mehrfamilien Briefkästen"><span class="mega-item-label">Mehrfamilien Briefkästen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/unterputz_briefkästen.png" alt="Unterputz Briefkästen"><span class="mega-item-label">Unterputz Briefkästen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/Briefkastenanlage_configurator.png" alt="Konfigurator"><span class="mega-item-label">Konfigurator</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/briefkastenschilder.png" alt="Briefkastenschilder"><span class="mega-item-label">Briefkastenschilder</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/briefkastenständer.png" alt="Briefkastenständer"><span class="mega-item-label">Briefkastenständer</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/briefkasten/ersatzteile.png" alt="Ersatzteile & Zubehör"><span class="mega-item-label">Ersatzteile & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-paketboxen">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/paketboxen/paketboxen.png" alt="Paketboxen mit Gravur"><span class="mega-item-label">Paketboxen mit Gravur</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/paketboxen/paketboxen_beleuchtet.png" alt="Paketboxen beleuchtet"><span class="mega-item-label">Paketboxen beleuchtet</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/paketboxen/paketboxen_mit_klingel.png" alt="Mit Klingel & Sprechanlage"><span class="mega-item-label">Mit Klingel & Sprechanlage</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/paketboxen/paketboxen_ohne_gravur.png" alt="Paketboxen ohne Gravur"><span class="mega-item-label">Paketboxen ohne Gravur</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/paketboxen/ersatzteile.png" alt="Ersatzteile & Zubehör"><span class="mega-item-label">Ersatzteile & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-sprechanlagen">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/video_sprechanlagen.png" alt="Video Sprechanlagen"><span class="mega-item-label">Video Sprechanlagen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/sprechanlagen_sets.png" alt="Sprechanlagen Sets"><span class="mega-item-label">Sprechanlagen Sets</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/audio_sprechanlagen.png" alt="Audio Sprechanlagen"><span class="mega-item-label">Audio Sprechanlagen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/video_sprechanlagen_mit_briefkasten.png" alt="Mit Briefkasten/Paketbox"><span class="mega-item-label">Mit Briefkasten/Paketbox</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/innenstationen.png" alt="Innenstationen"><span class="mega-item-label">Innenstationen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/ersatz_namensschilder.png" alt="Ersatz Namensschilder"><span class="mega-item-label">Ersatz Namensschilder</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/sprechanlagen/erweiterungen_zubehör.png" alt="Erweiterungen & Zubehör"><span class="mega-item-label">Erweiterungen & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-sicherheit">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/alarmanlagen.jpg" alt="Alarmanlagen"><span class="mega-item-label">Alarmanlagen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="IP Kamera Sets"><span class="mega-item-label">IP Kamera Sets</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="IP Kameras"><span class="mega-item-label">IP Kameras</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="EasyLink WLAN Sets"><span class="mega-item-label">EasyLink WLAN Sets</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="Dual-Objektiv Kameras"><span class="mega-item-label">Dual-Objektiv Kameras</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="WLAN Kameras"><span class="mega-item-label">WLAN Kameras</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="Videorekorder"><span class="mega-item-label">Videorekorder</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/kamera-sets.png" alt="Anschlussdosen & Zubehör"><span class="mega-item-label">Anschlussdosen & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-tuerklingeln">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/funkklingeln.png" alt="Funkklingeln"><span class="mega-item-label">Funkklingeln</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/aufputz_türklingeln.png" alt="Aufputz Türklingeln"><span class="mega-item-label">Aufputz Türklingeln</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/unterputz_türklingeln.png" alt="Unterputz Türklingeln"><span class="mega-item-label">Unterputz Türklingeln</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/mehrfamilien_klingel.png" alt="Mehrfamilien Klingel"><span class="mega-item-label">Mehrfamilien Klingel</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/türgongs .png" alt="Türgongs"><span class="mega-item-label">Türgongs</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/türklingel_weiterleitung.png" alt="Türklingel Weiterleitung"><span class="mega-item-label">Türklingel Weiterleitung</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="subcategory_photos/türklingeln/ersatzteile_zubehör.png" alt="Ersatzteile & Zubehör"><span class="mega-item-label">Ersatzteile & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-hausnummern">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummer-ziffern.jpg" alt="Einzelne Ziffern & Buchstaben"><span class="mega-item-label">Einzelne Ziffern & Buchstaben</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummer-beleuchtet.jpg" alt="Beleuchtete Hausnummern"><span class="mega-item-label">Beleuchtete Hausnummern</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummernschild.jpg" alt="Hausnummernschilder"><span class="mega-item-label">Hausnummernschilder</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummernschild.jpg" alt="Schriftzüge"><span class="mega-item-label">Schriftzüge</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummernschild.jpg" alt="Namens- & Hinweisschilder"><span class="mega-item-label">Namens- & Hinweisschilder</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/hausnummernschild.jpg" alt="Ersatzteile & Zubehör"><span class="mega-item-label">Ersatzteile & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-leuchten">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Wand- & Deckenleuchten"><span class="mega-item-label">Wand- & Deckenleuchten</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Hausnummernleuchten"><span class="mega-item-label">Hausnummernleuchten</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Strahler, Spots & Wege"><span class="mega-item-label">Strahler, Spots & Wege</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Akku, Solar & Kamera"><span class="mega-item-label">Akku, Solar & Kamera</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Plug & Shine"><span class="mega-item-label">Plug & Shine</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="24V Garten-Lichtsystem"><span class="mega-item-label">24V Garten-Lichtsystem</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/leuchten-wand.jpg" alt="Sensoren & Zubehör"><span class="mega-item-label">Sensoren & Zubehör</span></a>
+  </div></div>
+</div>
+<div class="mega-menu" id="mega-garten">
+  <div class="mega-menu-inner"><div class="mega-menu-grid">
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/garten-hochbeet.jpg" alt="Hochbeete"><span class="mega-item-label">Hochbeete</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/garten-hochbeet.jpg" alt="Aufbewahrungen"><span class="mega-item-label">Aufbewahrungen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/garten-maehroboter.jpg" alt="Mährobotergaragen"><span class="mega-item-label">Mährobotergaragen</span></a>
+    <a href="#" class="mega-item"><img class="mega-item-img" src="images_main_page/subcategories/garten-hochbeet.jpg" alt="Steckdosensäulen"><span class="mega-item-label">Steckdosensäulen</span></a>
+  </div></div>
+</div>
+
+<!-- ═══ CINEMATIC VIDEO HERO ═══ -->
+<section class="cine-hero grain" id="produktion">
+
+  <!-- Full-bleed production video -->
+  <div class="cine-media" id="prodVideoFrame">
+    <video id="prodVideo" autoplay muted loop playsinline preload="auto">
+      <source src="video/Pr%C3%A4zision%20braucht%20Zeit_V02.mp4" type="video/mp4">
+      Ihr Browser unterstützt das Video-Tag leider nicht.
+    </video>
+  </div>
+  <div class="cine-scrim"></div>
+
+  <!-- Bottom editorial content -->
+  <div class="cine-content">
+    <div class="cine-lead">
+      <span class="label">Metzler Manufaktur</span>
+      <h1 class="font-display">Präzision braucht <em>Zeit</em></h1>
+      <p class="cine-sub">Von der Gravur über die Endkontrolle bis zum Versand — so veredeln wir Ihr Produkt in Deutschland.</p>
+    </div>
+  </div>
+
+  <!-- Step ticker tracking video progress -->
+  <div class="cine-ticker">
+    <div class="cine-progress"><span id="cineProgressBar"></span></div>
+    <div class="cine-steps" id="cineSteps">
+      <span class="cine-step active" data-i="0"><b>01</b><span class="lbl">Gravur</span></span>
+      <span class="cine-step" data-i="1"><b>02</b><span class="lbl">Fertigung</span></span>
+      <span class="cine-step" data-i="2"><b>03</b><span class="lbl">Verpackung</span></span>
+      <span class="cine-step" data-i="3"><b>04</b><span class="lbl">Versand</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MANUFAKTUR INTRO ═══ -->
+<section class="manufaktur" data-reveal>
+  <div class="manufaktur-inner">
+    <div class="manu-head">
+      <div>
+        <span class="label">Unsere Fertigung</span>
+        <h2 class="font-display">Graviert und veredelt —<br><span class="hl">in Deutschland</span></h2>
+      </div>
+      <p>
+        Jedes Produkt durchläuft bei uns dieselbe Sorgfalt: Wir gravieren Namen und Motive
+        dauerhaft in den Edelstahl, veredeln jedes Detail und prüfen das Ergebnis von Hand —
+        bevor es sorgfältig verpackt auf den Weg zu Ihnen geht.
+      </p>
+    </div>
+    <div class="manu-gallery">
+      <figure><img src="cat-images/laser.jpg" alt="Laser-Gravur des Namensschilds in Edelstahl" loading="lazy"></figure>
+      <figure><img src="cat-images/street.jpg" alt="Graviertes Namensschild wird montiert" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS TIMELINE ═══ -->
+<section class="process" data-reveal>
+  <div class="process-head">
+    <h2 class="font-display">In vier Schritten <br>zum fertigen Metzler</h2>
+    <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
+  </div>
+  <div class="process-grid">
+
+    <div class="process-step">
+      <div class="font-display process-step-num">01</div>
+      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+      <h3 class="font-display">Namensschild <br>gravieren</h3>
+      <div class="line"></div>
+      <p>Mit Laserpräzision gravieren wir Namen, Hausnummern und Motive dauerhaft in den Edelstahl — jede Gravur wird einzeln geprüft.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="font-display process-step-num">02</div>
+      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <h3 class="font-display">Montage <br>&amp; Prüfung</h3>
+      <div class="line"></div>
+      <p>Komponenten werden montiert und jedes Gerät vor dem Versand auf einwandfreie Funktion geprüft — Stück für Stück.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="font-display process-step-num">03</div>
+      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+      <h3 class="font-display">Sichere <br>Verpackung</h3>
+      <div class="line"></div>
+      <p>Jedes Produkt wird transportsicher und bruchgeschützt verpackt, damit es makellos bei Ihnen ankommt.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="font-display process-step-num">04</div>
+      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l3 3v5a1 1 0 0 1-1 1h-1"/><path d="M9 18h6"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></div>
+      <h3 class="font-display">Schneller <br>Versand</h3>
+      <div class="line"></div>
+      <p>Versandfertig verlässt Ihr Produkt unser Haus und kommt schnell und zuverlässig bei Ihnen an.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ QUALITY BAND ═══ -->
+<section class="quality grain" data-reveal>
+  <div class="hero-ambient1"></div>
+  <div class="quality-inner">
+    <div class="quality-text">
+      <span class="label">Anspruch</span>
+      <h2 class="font-display">Qualität, die man sieht — und spürt</h2>
+      <p>
+        Vom eigenen Entwurf über die Gravur bis zur letzten Sichtkontrolle steht jeder Schritt
+        für den Metzler-Anspruch: hochwertige Materialien, lange Haltbarkeit und ein Service,
+        der überzeugt.
+      </p>
+    </div>
+    <div class="quality-list">
+      <div class="quality-item">
+        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h4>Designed in Germany</h4><p>Eigene Konstruktionsabteilung mit über 500 eingetragenen Patenten &amp; Designs.</p></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h4>Graviert &amp; geprüft im Haus</h4><p>Gravur, Veredelung und Endkontrolle übernehmen wir an unserem Standort in Reutlingen.</p></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h4>Hochwertiger Edelstahl</h4><p>Rostfreier Edelstahl statt kurzlebigem Kunststoff — für jahrzehntelange Haltbarkeit.</p></div>
+      </div>
+      <div class="quality-item">
+        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h4>Bewährte Qualität</h4><p>Über 1,8 Mio. Kunden vertrauen seit 2013 auf Metzler.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="prod-cta" data-reveal>
+  <div class="prod-cta-inner">
+    <div class="prod-cta-head">
+      <div>
+        <span class="label">Unser Sortiment</span>
+        <h2 class="font-display">Produkte mit Metzler-Qualität</h2>
+      </div>
+      <div>
+        <p>Jedes Produkt prüfen wir mit der gleichen Sorgfalt, die Sie gerade gesehen haben. Entdecken Sie unsere Produktwelten:</p>
+      </div>
+    </div>
+    <div class="prod-cta-cards">
+      <a class="cta-card" href="category-page.html">
+        <img src="cat-images/briefkasten.webp" alt="Briefkästen" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Briefkästen</span></span>
+      </a>
+      <a class="cta-card" href="category-page.html">
+        <img src="cat-images/türsprechanlagen.webp" alt="Sprechanlagen" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Sprechanlagen</span></span>
+      </a>
+      <a class="cta-card" href="category-page.html">
+        <img src="cat-images/türklingeln.webp" alt="Türklingeln" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Türklingeln</span></span>
+      </a>
+      <a class="cta-card" href="category-page.html">
+        <img src="cat-images/hausnummern.webp" alt="Hausnummern" loading="lazy">        <span class="cta-card-overlay"><span class="cta-card-line"></span><span class="cta-card-name">Hausnummern</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="mzf">
+  <div class="mzf-inner">
+
+    <!-- Row 1 — navigation columns -->
+    <div class="mzf-row1">
+
+      <!-- Brand -->
+      <div class="mzf-brand">
+        <img src="footer/Metzler_Logo_footer.svg" alt="Metzler">
+        <p class="mzf-p">Edelstahl-Tuerklingel.de ist ein Unternehmen der <a class="mzf-link" href="https://metzlergmbh.de" target="_blank" rel="noopener noreferrer">Metzler Gruppe</a></p>
+        <p class="mzf-tag">Der Anbieter für Briefkästen, Sprechanlagen, Türklingeln und Hausnummern.</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="mzf-contact">
+        <div class="mzf-contact-block">
+          <p class="mzf-head">Allgemeine Hotline:</p>
+          <a class="mzf-link" href="tel:+4971213177310">+49 (0) 7121 / 317 7310</a>
+          <small>(Mo-Fr.: 09:00-16:00 Uhr)</small>
+        </div>
+        <div class="mzf-contact-block">
+          <p class="mzf-head">Sprechanlagen Hotline:</p>
+          <a class="mzf-link" href="tel:+4971213177333">+49 (0) 7121 / 317 7333</a>
+          <small>(Mo-Fr.: 09:00-16:00 Uhr)</small>
+        </div>
+        <div class="mzf-contact-block">
+          <p class="mzf-head">E-Mail Support:</p>
+          <a class="mzf-link" href="mailto:service@metzlergmbh.de">service@metzlergmbh.de</a>
+        </div>
+        <div class="mzf-contact-block">
+          <p class="mzf-head">Kontaktformular:</p>
+          <a class="mzf-link" href="https://edelstahl-tuerklingel.de/Kontakt" target="_blank" rel="noopener noreferrer">Zum Kontaktformular</a>
+        </div>
+      </div>
+
+      <!-- Informationen -->
+      <div class="mzf-col">
+        <p class="mzf-head">Informationen</p>
+        <div class="mzf-links">
+          <a class="mzf-navlink" href="#">Auszeichnungen</a>
+          <a class="mzf-navlink" href="#">Fotowettbewerb</a>
+          <a class="mzf-navlink" href="#">Kundenbilder</a>
+          <a class="mzf-navlink" href="#">Stellenangebote</a>
+          <a class="mzf-navlink" href="#">News</a>
+          <a class="mzf-navlink" href="#">Zahlung und Versand</a>
+        </div>
+      </div>
+
+      <!-- Service -->
+      <div class="mzf-col">
+        <p class="mzf-head">Service</p>
+        <div class="mzf-links">
+          <a class="mzf-navlink" href="#">Begriffserklärung</a>
+          <a class="mzf-navlink" href="#">FAQ</a>
+          <a class="mzf-navlink" href="#">Geschäftskunden</a>
+          <a class="mzf-navlink" href="#">Newsletter</a>
+          <a class="mzf-navlink" href="#">VDM10 FAQ</a>
+        </div>
+      </div>
+
+      <!-- Follow us + Qualität -->
+      <div class="mzf-social-wrap">
+        <div class="mzf-col" style="gap:30px;min-width:0">
+          <p class="mzf-head">Follow us</p>
+          <div class="mzf-social">
+            <a class="mzf-soc" href="#" aria-label="Pinterest"><img src="footer/Icon=Pinterest.svg" alt="" style="width:17px;height:22px"></a>
+            <a class="mzf-soc" href="#" aria-label="Facebook"><img src="footer/Icon=Facebook.svg" alt="" style="width:11px;height:20px"></a>
+            <a class="mzf-soc" href="#" aria-label="Instagram"><img src="footer/Icon=VaInstagram.svg" alt="" style="width:22px;height:21px"></a>
+            <a class="mzf-soc" href="#" aria-label="YouTube"><img src="footer/Icon=Youtube.svg" alt="" style="width:25px;height:18px"></a>
+            <a class="mzf-soc" href="#" aria-label="X"><img src="footer/Icon=X.svg" alt="" style="width:19px;height:19px"></a>
+          </div>
+        </div>
+        <div class="mzf-col" style="gap:30px;min-width:0">
+          <p class="mzf-head">Qualität</p>
+          <div class="mzf-quality">
+            <img src="footer/2023.png" alt="TopShop 2023">
+            <img src="footer/2024.png" alt="TopShop 2024">
+            <img src="footer/2025.png" alt="TopShop 2025">
+            <img src="footer/3jahre.png" alt="TopShop 3 Jahre">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 — shipping + payment + Trusted Shops slider -->
+    <div class="mzf-row2">
+      <div class="mzf-pay-group">
+        <span class="mzf-pay-label">Unsere Versandpartners:</span>
+        <div class="mzf-pay-badges">
+          <img src="footer/Choice=dpd.svg" alt="DPD">
+          <img src="footer/Choice=dhl.svg" alt="DHL">
+          <img src="footer/Choice=gogreen.svg" alt="GoGreen">
+        </div>
+      </div>
+      <div class="mzf-pay-group grow">
+        <span class="mzf-pay-label">Einfach bezahlen:</span>
+        <div class="mzf-pay-badges">
+          <img src="footer/Choice=sepa.svg" alt="SEPA">
+          <img src="footer/Choice=amex.svg" alt="American Express">
+          <img src="footer/Choice=visa.svg" alt="Visa">
+          <img src="footer/Choice=pay.svg" alt="Amazon Pay">
+          <img src="footer/Choice=klarna.svg" alt="Klarna">
+          <img src="footer/Choice=paypal.svg" alt="PayPal">
+          <img src="footer/Choice=mastercard.svg" alt="Mastercard">
+          <img src="footer/Choice=apple.svg" alt="Apple Pay">
+          <img src="footer/Choice=google.svg" alt="Google Pay">
+          <img src="footer/Choice=vorkasse.svg" alt="Vorkasse">
+        </div>
+      </div>
+      <!-- Trusted Shops slider -->
+      <div class="mzf-trusted" id="mzfTrusted">
+        <div class="mzf-ts-rate">
+          <img class="mzf-ts-logo" id="mzfTsLogo" src="footer/Property%201=all.svg" alt="Trusted Shops">
+          <div class="mzf-ts-col">
+            <div class="mzf-ts-stars">
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2l1.73 3.51 3.87.56-2.8 2.73.66 3.86L7.5 9.96l-3.46 1.92.66-3.86L1.9 5.27l3.87-.56z" fill="#F5A623" stroke="#E09000" stroke-width="0.4"/></svg>
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2l1.73 3.51 3.87.56-2.8 2.73.66 3.86L7.5 9.96l-3.46 1.92.66-3.86L1.9 5.27l3.87-.56z" fill="#F5A623" stroke="#E09000" stroke-width="0.4"/></svg>
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2l1.73 3.51 3.87.56-2.8 2.73.66 3.86L7.5 9.96l-3.46 1.92.66-3.86L1.9 5.27l3.87-.56z" fill="#F5A623" stroke="#E09000" stroke-width="0.4"/></svg>
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2l1.73 3.51 3.87.56-2.8 2.73.66 3.86L7.5 9.96l-3.46 1.92.66-3.86L1.9 5.27l3.87-.56z" fill="#F5A623" stroke="#E09000" stroke-width="0.4"/></svg>
+              <svg viewBox="0 0 15 15" fill="none"><path d="M7.5 1.2l1.73 3.51 3.87.56-2.8 2.73.66 3.86L7.5 9.96l-3.46 1.92.66-3.86L1.9 5.27l3.87-.56z" fill="#F5A623" stroke="#E09000" stroke-width="0.4"/></svg>
+            </div>
+            <div class="mzf-ts-text">
+              <span class="mzf-ts-score" id="mzfTsScore">4,72 Sehr gut</span>
+              <span class="mzf-ts-sub" id="mzfTsSub">32.780 Bewertungen</span>
+            </div>
+          </div>
+        </div>
+        <div class="mzf-ts-nav">
+          <button class="mzf-ts-arr" id="mzfTsPrev" type="button" aria-label="Zurück"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M6 1L1 6L6 11" stroke="#015253" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="mzf-ts-arr" id="mzfTsNext" type="button" aria-label="Weiter"><svg width="7" height="12" viewBox="0 0 7 12" fill="none"><path d="M1 1L6 6L1 11" stroke="#015253" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3 — legal -->
+    <div class="mzf-legal">
+      <a href="#">Geprüfte Kundenbewertungen</a>
+      <a href="#">Metzler Garantieerklärung</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">AGB</a>
+      <a href="#">Sitemap</a>
+      <a href="#">Impressum</a>
+      <a href="#">Batterieentsorgungsgesetz</a>
+      <a href="#">Widerrufsrecht</a>
+      <a href="#">Hinweise zur Elektroaltgeräteentsorgung</a>
+      <a href="#">Cookie-Einstellungen</a>
+    </div>
+
+    <!-- Row 4 — copyright -->
+    <div class="mzf-copy">
+      <span id="footerCopy">Alle Preise inkl. gesetzliche MwSt., zzgl. <a href="#">Versand</a>&nbsp;&nbsp;&nbsp;© 2013 - 2024 | Metzler GmbH</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ─── HEADER: SCROLL STATE ───
+  var mainNav = document.getElementById('mainNav');
+  var hdrCompact = document.getElementById('hdrCompact');
+  var hdrRow1 = document.querySelector('.hdr-row1');
+  var hdrRow2 = document.querySelector('.hdr-row2');
+  var scrollThreshold = 150;
+
+  function updateNavScroll(){
+    var scrolled = window.scrollY > scrollThreshold;
+    hdrCompact.classList.toggle('visible', scrolled);
+    hdrRow1.style.opacity = scrolled ? '0' : '1';
+    hdrRow1.style.pointerEvents = scrolled ? 'none' : '';
+    hdrRow2.style.opacity = scrolled ? '0' : '1';
+    hdrRow2.style.pointerEvents = scrolled ? 'none' : '';
+    mainNav.style.opacity = scrolled ? '0' : '1';
+    mainNav.style.pointerEvents = scrolled ? 'none' : '';
+  }
+  window.addEventListener('scroll', updateNavScroll, {passive:true});
+  updateNavScroll();
+
+  // ─── NAV OVERFLOW ───
+  var navCatsEl = document.getElementById('navCategories');
+  var navAlleBtn = document.getElementById('navAlleBtn');
+  var navCatItems = Array.from(navCatsEl.querySelectorAll('.nav-cat'));
+  function checkNavOverflow(){
+    navCatItems.forEach(function(c){c.classList.remove('nav-hidden')});
+    navAlleBtn.classList.remove('visible');
+    navCatsEl.classList.remove('has-overflow');
+    var itemWidths = navCatItems.map(function(c){return c.offsetWidth});
+    var totalItemsWidth = itemWidths.reduce(function(a,b){return a+b},0);
+    var containerWidth = navCatsEl.clientWidth;
+    var minGap = 18;
+    if(totalItemsWidth + (navCatItems.length - 1) * minGap <= containerWidth) return;
+    navAlleBtn.classList.add('visible');
+    navCatsEl.classList.add('has-overflow');
+    var availableForItems = containerWidth;
+    for(var i = navCatItems.length - 1; i >= 0; i--){
+      navCatItems[i].classList.add('nav-hidden');
+      var visibleWidth = 0, visibleCount = 0;
+      navCatItems.forEach(function(c,idx){
+        if(!c.classList.contains('nav-hidden')){visibleWidth += itemWidths[idx]; visibleCount++;}
+      });
+      if(visibleCount === 0) break;
+      if(visibleWidth + (visibleCount - 1) * minGap <= availableForItems) break;
+    }
+  }
+  window.addEventListener('resize', checkNavOverflow);
+  checkNavOverflow();
+
+  // ─── GREEN BAR BADGE OVERFLOW ───
+  var badgeItems = Array.from(document.querySelectorAll('.hdr-badge')).reverse();
+  var badgesContainer = document.querySelector('.hdr-badges');
+  var hdrLinksEl = document.querySelector('.hdr-links');
+  function checkBadgeOverflow(){
+    badgeItems.forEach(function(b){b.classList.remove('badge-hidden')});
+    if(!badgesContainer) return;
+    var gap = 24;
+    var minGapToLinks = 24;
+    var linksW = hdrLinksEl ? hdrLinksEl.offsetWidth + minGapToLinks : 0;
+    var parent = badgesContainer.parentElement;
+    var parentStyle = getComputedStyle(parent);
+    var parentW = parent.clientWidth - parseFloat(parentStyle.paddingLeft) - parseFloat(parentStyle.paddingRight);
+    var maxBadgesWidth = parentW - linksW;
+    for(var i = 0; i < badgeItems.length; i++){
+      var w = 0, count = 0;
+      badgeItems.forEach(function(b){
+        if(!b.classList.contains('badge-hidden')){w += b.offsetWidth; count++;}
+      });
+      var totalNeeded = w + Math.max(0, count - 1) * gap;
+      if(totalNeeded <= maxBadgesWidth) break;
+      badgeItems[i].classList.add('badge-hidden');
+    }
+  }
+  window.addEventListener('resize', checkBadgeOverflow);
+  checkBadgeOverflow();
+
+  // ─── SEARCH CLEAR BUTTONS ───
+  document.querySelectorAll('.hdr-searchbar').forEach(function(bar){
+    var input = bar.querySelector('input');
+    var clearBtn = bar.querySelector('.search-clear');
+    if(!input || !clearBtn) return;
+    input.addEventListener('input', function(){
+      clearBtn.classList.toggle('visible', input.value.length > 0);
+    });
+    clearBtn.addEventListener('click', function(){
+      input.value = '';
+      clearBtn.classList.remove('visible');
+      input.focus();
+    });
+  });
+
+  // ─── SIDE MENU ───
+  var menuBtn = document.getElementById('menuBtn');
+  var sideMenu = document.getElementById('sideMenu');
+  var sideOverlay = document.getElementById('sideOverlay');
+  var sideClose = document.getElementById('sideClose');
+
+  function openSideMenu(){
+    sideMenu.classList.add('open');
+    sideOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSideMenu(){
+    sideMenu.classList.remove('open');
+    sideOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  menuBtn.addEventListener('click', openSideMenu);
+  if(navAlleBtn) navAlleBtn.addEventListener('click', openSideMenu);
+  var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSideMenu);
+  sideClose.addEventListener('click', closeSideMenu);
+  sideOverlay.addEventListener('click', closeSideMenu);
+
+  // ─── MOBILE TOPBAR SCROLL ───
+  var mobileTopbar = document.getElementById('mobileTopbar');
+  var lastScrollY = 0;
+  function updateMobileTopbar(){
+    if(!mobileTopbar) return;
+    var sy = window.scrollY;
+    if(sy > 50){
+      mobileTopbar.classList.add('hidden');
+    } else {
+      mobileTopbar.classList.remove('hidden');
+    }
+    lastScrollY = sy;
+  }
+  window.addEventListener('scroll', updateMobileTopbar, {passive:true});
+  updateMobileTopbar();
+
+  // ─── NAV: MEGA MENU ───
+  var navCats = document.querySelectorAll('.nav-cat');
+  var megaMenus = document.querySelectorAll('.mega-menu');
+  var activeMenu = null;
+  var closeTimeout = null;
+
+  function openMenu(menuId){
+    clearTimeout(closeTimeout);
+    if(activeMenu && activeMenu.id !== 'mega-' + menuId){
+      activeMenu.classList.remove('open');
+    }
+    var menu = document.getElementById('mega-' + menuId);
+    if(menu){
+      menu.classList.add('open');
+      activeMenu = menu;
+    }
+    navCats.forEach(function(c){c.classList.toggle('active', c.dataset.menu === menuId)});
+  }
+  function scheduleClose(){
+    clearTimeout(closeTimeout);
+    closeTimeout = setTimeout(function(){
+      if(activeMenu){activeMenu.classList.remove('open');activeMenu=null;}
+      navCats.forEach(function(c){c.classList.remove('active')});
+    }, 120);
+  }
+  navCats.forEach(function(cat){
+    cat.addEventListener('mouseenter', function(){openMenu(cat.dataset.menu)});
+    cat.addEventListener('mouseleave', scheduleClose);
+  });
+  megaMenus.forEach(function(menu){
+    menu.addEventListener('mouseenter', function(){clearTimeout(closeTimeout)});
+    menu.addEventListener('mouseleave', scheduleClose);
+  });
+
+  // Side menu items open mega menus
+  document.querySelectorAll('.side-menu-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+      e.preventDefault();
+      closeSideMenu();
+    });
+  });
+
+  // ─── FOOTER YEAR ───
+  document.getElementById('footerCopy').innerHTML =
+    'Alle Preise inkl. gesetzliche MwSt., zzgl. <a href="#">Versand</a>&nbsp;&nbsp;&nbsp;© 2013 - ' + new Date().getFullYear() + ' | Metzler GmbH';
+
+
+  // ─── SCROLL REVEAL ───
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.12,rootMargin:'-8% 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){ revealObserver.observe(el); });
+
+  // ─── SMOOTH ANCHORS ───
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id = this.getAttribute('href');
+      if(id.length > 1){
+        var el = document.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+      }
+    });
+  });
+
+  // ─── CINEMATIC VIDEO HERO ───
+  (function(){
+    var hero    = document.querySelector('.cine-hero');
+    var media   = document.getElementById('prodVideoFrame');
+    var video   = document.getElementById('prodVideo');
+    var muteBtn = document.getElementById('prodVideoMute');
+    var ppBtn   = document.getElementById('prodVideoPlayPause');
+    var playBtn = document.getElementById('cinePlay');
+    var bar     = document.getElementById('cineProgressBar');
+    var steps   = Array.prototype.slice.call(document.querySelectorAll('#cineSteps .cine-step'));
+    if(!hero || !video) return;
+
+    var iconMuted = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+    var iconSound = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>';
+    var iconPlay  = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    var iconPause = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
+
+    function syncMute(){
+      if(!muteBtn) return;
+      muteBtn.innerHTML = video.muted ? iconMuted : iconSound;
+      muteBtn.setAttribute('aria-label', video.muted ? 'Ton einschalten' : 'Ton ausschalten');
+    }
+    function syncPP(){
+      if(!ppBtn) return;
+      ppBtn.innerHTML = video.paused ? iconPlay : iconPause;
+      ppBtn.setAttribute('aria-label', video.paused ? 'Video abspielen' : 'Video pausieren');
+    }
+
+    var userPaused = false;
+    function play(){ var p = video.play(); if(p && p.catch){ p.catch(function(){}); } }
+
+    video.addEventListener('play',  function(){ hero.classList.add('playing'); syncPP(); });
+    video.addEventListener('pause', function(){ hero.classList.remove('playing'); syncPP(); });
+
+    // Progress bar + step ticker tracking the film's four phases
+    video.addEventListener('timeupdate', function(){
+      if(!video.duration) return;
+      var prog = video.currentTime / video.duration;
+      if(bar) bar.style.width = (prog * 100) + '%';
+      var idx = Math.min(steps.length - 1, Math.floor(prog * steps.length));
+      steps.forEach(function(s,i){ s.classList.toggle('active', i === idx); });
+    });
+
+    function toggle(){
+      if(video.paused){ userPaused = false; play(); }
+      else { userPaused = true; video.pause(); }
+    }
+    if(media)   media.addEventListener('click', toggle);
+    if(playBtn) playBtn.addEventListener('click', function(e){ e.stopPropagation(); userPaused = false; play(); });
+    if(ppBtn)   ppBtn.addEventListener('click',  function(e){ e.stopPropagation(); toggle(); });
+    if(muteBtn) muteBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      video.muted = !video.muted;
+      if(!video.muted && video.paused){ userPaused = false; play(); }
+      syncMute();
+    });
+
+    syncMute(); syncPP();
+
+    // Muted autoplay once the hero is in view; pause when it leaves the viewport.
+    if('IntersectionObserver' in window){
+      var vObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ if(!userPaused) play(); }
+          else if(!video.paused){ video.pause(); }
+        });
+      },{threshold:0.35});
+      vObs.observe(video);
+    } else { play(); }
+  })();
+
+  // ─── FOOTER · TRUSTED SHOPS SLIDER ───
+  (function(){
+    var box = document.getElementById('mzfTrusted');
+    if(!box) return;
+    var logo  = document.getElementById('mzfTsLogo');
+    var score = document.getElementById('mzfTsScore');
+    var sub   = document.getElementById('mzfTsSub');
+    var prev  = document.getElementById('mzfTsPrev');
+    var next  = document.getElementById('mzfTsNext');
+    var slides = [
+      {score:'4,72 Sehr gut', sub:'32.780 Bewertungen', img:'footer/Property%201=all.svg'},
+      {score:'4,74 Sehr gut', sub:'29.573 Bewertungen', img:'footer/Property%201=e.svg'},
+      {score:'4,74 Sehr gut', sub:'2.518 Bewertungen',  img:'footer/Property%201=g.svg'},
+      {score:'4,74 Sehr gut', sub:'689 Bewertungen',    img:'footer/Property%201=t.svg'}
+    ];
+    var idx = 0, timer = null, paused = false;
+    function render(){
+      var s = slides[idx];
+      logo.src = s.img; score.textContent = s.score; sub.textContent = s.sub;
+      var t = box.querySelector('.mzf-ts-text');
+      if(t){ t.style.animation = 'none'; void t.offsetWidth; t.style.animation = 'tslidein .3s ease'; }
+    }
+    function go(d){ idx = (idx + d + slides.length) % slides.length; render(); }
+    function start(){ if(timer) return; timer = setInterval(function(){ if(!paused) go(1); }, 3000); }
+    prev.addEventListener('click', function(){ go(-1); });
+    next.addEventListener('click', function(){ go(1); });
+    box.addEventListener('mouseenter', function(){ paused = true; });
+    box.addEventListener('mouseleave', function(){ paused = false; });
+    render(); start();
+  })();
+
+})();
+</script>
+</body>
+</html>
