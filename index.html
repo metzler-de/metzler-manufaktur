@@ -1304,10 +1304,11 @@ img{display:block;max-width:100%}
 .manufaktur-stat .lbl{margin-top:.55rem;font-size:0.9375rem;color:var(--muted-foreground);line-height:1.4}
 
 /* ─── PROCESS — fully-bordered feature grid (design-system nfs style) ─── */
-.process{position:relative;padding:4rem var(--gutter);background:var(--background);color:var(--foreground)}
-@media(min-width:768px){.process{padding:5.5rem var(--gutter)}}
+.process{position:relative;padding:4rem 0;background:var(--background);color:var(--foreground)}
+@media(min-width:768px){.process{padding:5.5rem 0}}
+.process-inner{max-width:1600px;margin:0 auto}
 .process-head{
-  max-width:1600px;margin:0 auto 2.5rem;
+  margin:0 0 2.5rem;
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
 }
 @media(min-width:880px){.process-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem;margin-bottom:3rem}}
@@ -1321,7 +1322,6 @@ img{display:block;max-width:100%}
 .process-grid{
   display:grid;grid-template-columns:1fr;gap:1px;
   background:#E6E6E8;border:1px solid #E6E6E8;border-radius:0.5rem;overflow:hidden;
-  max-width:1600px;margin:0 auto;
 }
 @media(min-width:600px){.process-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr)}}
@@ -1407,7 +1407,7 @@ img{display:block;max-width:100%}
 @media(min-width:769px){:root{--gutter:2.5rem}}
 .hdr-row1-inner,.hdr-row2-inner,.nav-inner,.hdr-compact-inner,.hdr-mobile-bar,.hdr-mobile-topbar,
 .mzf-inner,
-.cine-content,.cine-steps,
+.cine-content,.cine-steps,.process-inner,
 .manufaktur-inner,.quality-inner,.prod-cta-inner{
   padding-left:var(--gutter)!important;
   padding-right:var(--gutter)!important;
@@ -1696,6 +1696,7 @@ img{display:block;max-width:100%}
 
 <!-- ═══ PROCESS TIMELINE ═══ -->
 <section class="process" data-reveal>
+  <div class="process-inner">
   <div class="process-head">
     <div>
       <span class="label">So entsteht Ihr Produkt</span>
@@ -1739,6 +1740,7 @@ img{display:block;max-width:100%}
       <p>Versandfertig verlässt Ihr Produkt unser Haus und kommt schnell und zuverlässig bei Ihnen an.</p>
     </div>
 
+  </div>
   </div>
 </section>
 
