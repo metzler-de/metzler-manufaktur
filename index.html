@@ -1306,13 +1306,17 @@ img{display:block;max-width:100%}
 /* ─── PROCESS — fully-bordered feature grid (design-system nfs style) ─── */
 .process{position:relative;padding:4rem var(--gutter);background:var(--background);color:var(--foreground)}
 @media(min-width:768px){.process{padding:5.5rem var(--gutter)}}
-.process-head{max-width:1600px;margin:0 auto 2rem}
-@media(min-width:768px){.process-head{margin-bottom:2.5rem}}
-.process-head h2{
-  font-family:var(--font);font-weight:700;
-  font-size:clamp(2rem,4vw,2.875rem);line-height:1.15;letter-spacing:-0.04em;color:var(--foreground);
+.process-head{
+  max-width:1600px;margin:0 auto 2.5rem;
+  display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
 }
-.process-head p{margin-top:1.1rem;max-width:58ch;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
+@media(min-width:880px){.process-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem;margin-bottom:3rem}}
+.process-head .label{color:var(--brand);display:block;margin-bottom:1rem}
+.process-head h2{
+  font-family:var(--font);font-weight:700;margin:0;
+  font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;color:var(--foreground);
+}
+.process-head p{margin:0;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
 /* Fully-bordered grid: 1px gaps over a grey backdrop + outer border + rounded corners */
 .process-grid{
   display:grid;grid-template-columns:1fr;gap:1px;
@@ -1693,8 +1697,13 @@ img{display:block;max-width:100%}
 <!-- ═══ PROCESS TIMELINE ═══ -->
 <section class="process" data-reveal>
   <div class="process-head">
-    <h2 class="font-display">In vier Schritten <br>zum fertigen Metzler</h2>
-    <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
+    <div>
+      <span class="label">So entsteht Ihr Produkt</span>
+      <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
+    </div>
+    <div>
+      <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
+    </div>
   </div>
   <div class="process-grid">
 
