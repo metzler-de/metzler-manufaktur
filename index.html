@@ -1199,10 +1199,11 @@ img{display:block;max-width:100%}
   margin-top:0.9rem;max-width:44ch;
   font-size:clamp(0.9375rem,1.1vw,1.0625rem);line-height:1.5;color:rgba(255,255,255,0.85);
 }
-@media(max-width:768px){
-  /* Mobile: lay the hero out in normal flow so the video sits flush under the
-     header (no letterbox/black gap) at its true 16:9 height, with the text and
-     ticker following below it on the dark hero background. */
+@media(max-width:768px), (max-aspect-ratio:3/2){
+  /* Flow layout: video sits flush under the header (no letterbox/black gap) at
+     its true 16:9 height, with the text + ticker following below it on the dark
+     hero background. Triggers on small screens AND on any tall/narrow viewport
+     where the contained video would otherwise letterbox above. */
   .cine-hero{
     height:auto;min-height:0;
     padding-top:var(--hdr-h);
@@ -1219,6 +1220,7 @@ img{display:block;max-width:100%}
     flex-direction:column;align-items:flex-start;gap:1.75rem;
     padding:1.75rem 1.5rem 2rem;
   }
+  .cine-ticker{position:static;bottom:auto}
 }
 
 /* Step ticker + progress */
@@ -1267,17 +1269,16 @@ img{display:block;max-width:100%}
 .manu-head{
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
 }
-@media(min-width:880px){.manu-head{grid-template-columns:1.05fr 0.95fr;gap:3.5rem}}
+@media(min-width:880px){.manu-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem}}
 .manufaktur .label{color:var(--brand);margin-bottom:1rem;display:block}
 .manufaktur h2{
-  font-size:clamp(1.875rem,3.8vw,3rem);
-  line-height:1.08;letter-spacing:-0.025em;font-weight:700;margin:0;
+  font-family:var(--font);font-weight:700;margin:0;
+  font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;color:var(--foreground);
 }
 .manufaktur h2 .hl{color:inherit}
 .manu-head p{
-  margin:0;font-size:1.0625rem;line-height:1.65;color:var(--muted-foreground);
+  margin:0;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground);
 }
-@media(max-width:879px){.manu-head p{font-size:1rem}}
 /* Production-image collage — cinematic feature + thumbnails */
 .manu-gallery{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-top:2.75rem}
 .manu-gallery figure{
