@@ -1303,61 +1303,48 @@ img{display:block;max-width:100%}
 .manufaktur-stat .num{font-size:clamp(2rem,3.2vw,2.75rem);font-weight:700;letter-spacing:-0.03em;color:var(--brand);line-height:1}
 .manufaktur-stat .lbl{margin-top:.55rem;font-size:0.9375rem;color:var(--muted-foreground);line-height:1.4}
 
-/* ─── PROCESS (Upgrade-style steps) ─── */
-.process{position:relative;padding:4rem 0;background:var(--background);color:var(--foreground)}
-@media(min-width:768px){.process{padding:5.5rem 0}}
-.process-head{max-width:1600px;margin:0 auto 2rem;padding:0 1.5rem}
-@media(min-width:768px){.process-head{padding:0 2.5rem;margin-bottom:2.5rem}}
+/* ─── PROCESS — fully-bordered feature grid (design-system nfs style) ─── */
+.process{position:relative;padding:4rem var(--gutter);background:var(--background);color:var(--foreground)}
+@media(min-width:768px){.process{padding:5.5rem var(--gutter)}}
+.process-head{max-width:1600px;margin:0 auto 2rem}
+@media(min-width:768px){.process-head{margin-bottom:2.5rem}}
 .process-head h2{
   font-family:var(--font);font-weight:700;
   font-size:clamp(2rem,4vw,2.875rem);line-height:1.15;letter-spacing:-0.04em;color:var(--foreground);
 }
 .process-head p{margin-top:1.1rem;max-width:58ch;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
+/* Fully-bordered grid: 1px gaps over a grey backdrop + outer border + rounded corners */
 .process-grid{
-  display:grid;grid-template-columns:1fr;gap:0;
-  max-width:1600px;margin:0 auto;padding:0 1.5rem;
+  display:grid;grid-template-columns:1fr;gap:1px;
+  background:#E6E6E8;border:1px solid #E6E6E8;border-radius:0.5rem;overflow:hidden;
+  max-width:1600px;margin:0 auto;
 }
-@media(min-width:768px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:600px){.process-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.process-grid{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:768px){.process-grid{padding:0 2.5rem}}
 .process-step{
-  background:transparent;padding:2.5rem 1.5rem;
-  display:flex;flex-direction:column;gap:1.25rem;
-  border-right:1px solid rgba(0,0,0,0.12);
-  transition:background .3s;
+  background:#fff;padding:1.5rem;
+  display:flex;flex-direction:column;align-items:flex-start;gap:0.375rem;
+  transition:background .22s ease;
 }
-@media(min-width:1024px){.process-step{padding:3rem 2rem;min-height:22rem}}
-.process-step:last-child{border-right:none}
-@media(hover:hover){.process-step:hover{background:rgba(1,82,83,0.05)}}
-/* dividers — 2-col (tablet) 768–1023 */
-@media(min-width:768px) and (max-width:1023px){
-  .process-step:nth-child(2n){border-right:none}
-  .process-step{border-bottom:1px solid rgba(0,0,0,0.12)}
-  .process-step:nth-last-child(-n+2){border-bottom:none}
+.process-step-num{
+  font-size:0.6875rem;font-weight:600;letter-spacing:0.04em;
+  color:#BFBFC2;font-variant-numeric:tabular-nums;margin-bottom:0.125rem;transition:color .22s ease;
 }
-/* dividers — 1-col (mobile) up to 767 */
-@media(max-width:767px){
-  .process-step{border-right:none;border-bottom:1px solid rgba(0,0,0,0.12)}
-  .process-step:last-child{border-bottom:none}
-}
-.process-step-num{font-size:4rem;letter-spacing:-0.04em;line-height:1;font-weight:700;color:var(--brand)}
 .process-step-icon{
-  width:3rem;height:3rem;border-radius:0.625rem;
-  background:rgba(1,82,83,0.08);color:var(--brand);
-  display:flex;align-items:center;justify-content:center;
+  width:2.25rem;height:2.25rem;border-radius:0.5rem;
+  background:#F5F6FA;color:var(--brand);
+  display:inline-flex;align-items:center;justify-content:center;margin-bottom:0.25rem;
+  transition:background .22s ease,color .22s ease;
 }
-.process-step-icon svg{width:22px;height:22px}
-.process-step h3{font-size:clamp(1.375rem,2.4vw,1.75rem);letter-spacing:-0.03em;line-height:1.1;color:var(--foreground);font-weight:700}
-.process-step .line{height:1px;width:3rem;background:var(--brand);transition:width .7s}
-@media(hover:hover){.process-step:hover .line{width:100%}}
-.process-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.6}
-/* Mobile: match the step sizing of the 2draht-bus reference page (1-col up to 767) */
-@media(max-width:767px){
-  .process-step{padding:1.5rem 0;gap:0.75rem}
-  .process-step-num{font-size:2rem}
-  .process-step-icon{width:2.25rem;height:2.25rem}
-  .process-step h3{font-size:1.25rem;letter-spacing:-0.04em}
-  .process-step p{font-size:1rem;line-height:1.6}
+.process-step-icon svg{width:1.125rem;height:1.125rem}
+.process-step h3{font-size:1rem;font-weight:700;line-height:1.3;color:var(--foreground);margin:0 0 0.25rem;transition:color .22s ease}
+.process-step .line{display:none}
+.process-step p{font-size:1rem;line-height:1.4;color:var(--muted-foreground);margin:0}
+@media(hover:hover){
+  .process-step:hover{background:#F2F6F6}
+  .process-step:hover .process-step-num{color:var(--brand)}
+  .process-step:hover h3{color:var(--brand)}
+  .process-step:hover .process-step-icon{background:var(--brand);color:#fff}
 }
 
 /* ─── QUALITY BAND ─── */
@@ -1416,7 +1403,7 @@ img{display:block;max-width:100%}
 @media(min-width:769px){:root{--gutter:2.5rem}}
 .hdr-row1-inner,.hdr-row2-inner,.nav-inner,.hdr-compact-inner,.hdr-mobile-bar,.hdr-mobile-topbar,
 .mzf-inner,
-.cine-content,.cine-steps,.process-head,.process-grid,
+.cine-content,.cine-steps,
 .manufaktur-inner,.quality-inner,.prod-cta-inner{
   padding-left:var(--gutter)!important;
   padding-right:var(--gutter)!important;
@@ -1424,9 +1411,6 @@ img{display:block;max-width:100%}
 /* These sections are full-bleed; the gutter + 1600px max-width live on their inner wrapper
    (same model as header/footer), so content edges match on monitors wider than 1600px. */
 .manufaktur,.quality,.prod-cta{padding-left:0!important;padding-right:0!important}
-/* Mobile (single column): drop the card's own side padding so step content aligns with the
-   container gutter while the card/background stays inside the grid (not edge-to-edge). */
-@media(max-width:767px){.process-step{padding-left:0!important;padding-right:0!important}}
 </style>
 </head>
 <body>
