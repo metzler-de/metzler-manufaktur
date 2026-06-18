@@ -1354,6 +1354,48 @@ img{display:block;max-width:100%}
   .process-step:hover .process-step-icon{background:var(--brand);color:#fff;transform:translateY(-1px)}
 }
 
+/* ─── PROCESS (2draht-bus "upgrade steps" style variant) ─── */
+.upg{position:relative;padding:4rem 0;background:#fff;color:var(--foreground)}
+@media(min-width:768px){.upg{padding:5.5rem 0}}
+.upg-inner{max-width:1600px;margin:0 auto}
+.upg-steps{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:600px){.upg-steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.upg-steps{grid-template-columns:repeat(4,1fr)}}
+.upg-step{
+  background:transparent;padding:2.5rem 1.5rem;
+  display:flex;flex-direction:column;gap:1.5rem;
+  border-right:1px solid rgba(0,0,0,0.12);transition:background .3s;
+}
+@media(min-width:1024px){.upg-step{padding:3rem 2rem;min-height:22rem}}
+.upg-step:last-child{border-right:none}
+@media(hover:hover){.upg-step:hover{background:rgba(1,82,83,0.05)}}
+/* dividers — 2-col (tablet) */
+@media(min-width:600px) and (max-width:1023px){
+  .upg-step:nth-child(2n){border-right:none}
+  .upg-step{border-bottom:1px solid rgba(0,0,0,0.12)}
+  .upg-step:nth-last-child(-n+2){border-bottom:none}
+}
+/* dividers — 1-col (mobile) */
+@media(max-width:599px){
+  .upg-step{border-right:none;border-bottom:1px solid rgba(0,0,0,0.12)}
+  .upg-step:last-child{border-bottom:none}
+}
+.upg-step-num{font-size:4rem;letter-spacing:-0.04em;line-height:1;font-weight:700;color:var(--brand)}
+.upg-step-icon{
+  width:2.5rem;height:2.5rem;border-radius:0.625rem;
+  background:rgba(1,82,83,0.08);color:var(--brand);
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.upg-step-icon svg{width:1.375rem;height:1.375rem;stroke-width:1.8}
+.upg-step h3{font-family:var(--font);font-size:1.25rem;font-weight:700;line-height:1.35;color:var(--foreground);margin:0}
+.upg-step .line{height:1px;width:3rem;background:var(--brand);transition:width .7s}
+@media(hover:hover){.upg-step:hover .line{width:100%}}
+.upg-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.6;margin:0}
+@media(max-width:599px){
+  .upg-step{padding:1.5rem 0;gap:0.75rem}
+  .upg-step-num{font-size:2rem}
+}
+
 /* ─── QUALITY BAND ─── */
 .quality{position:relative;overflow:hidden;background-image:var(--gradient-brand);color:#fff;padding:4.5rem 1.5rem}
 @media(min-width:768px){.quality{padding:6.5rem 2.5rem}}
@@ -1410,7 +1452,7 @@ img{display:block;max-width:100%}
 @media(min-width:769px){:root{--gutter:2.5rem}}
 .hdr-row1-inner,.hdr-row2-inner,.nav-inner,.hdr-compact-inner,.hdr-mobile-bar,.hdr-mobile-topbar,
 .mzf-inner,
-.cine-content,.cine-steps,.process-inner,
+.cine-content,.cine-steps,.process-inner,.upg-inner,
 .manufaktur-inner,.quality-inner,.prod-cta-inner{
   padding-left:var(--gutter)!important;
   padding-right:var(--gutter)!important;
@@ -1697,53 +1739,48 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- ═══ PROCESS TIMELINE ═══ -->
-<section class="process" data-reveal>
-  <div class="process-inner">
-  <div class="process-head">
-    <div>
-      <span class="label">So entsteht Ihr Produkt</span>
-      <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
+<!-- ═══ PROCESS ═══ -->
+<section class="upg" data-reveal>
+  <div class="upg-inner">
+    <div class="process-head">
+      <div>
+        <span class="label">So entsteht Ihr Produkt</span>
+        <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
+      </div>
+      <div>
+        <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
+      </div>
     </div>
-    <div>
-      <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
+    <div class="upg-steps">
+      <div class="upg-step">
+        <div class="font-display upg-step-num">01</div>
+        <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3 class="font-display">Namensschild gravieren</h3>
+        <div class="line"></div>
+        <p>Mit Laserpräzision gravieren wir Namen, Hausnummern und Motive dauerhaft in den Edelstahl — jede Gravur wird einzeln geprüft.</p>
+      </div>
+      <div class="upg-step">
+        <div class="font-display upg-step-num">02</div>
+        <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3 class="font-display">Montage &amp; Prüfung</h3>
+        <div class="line"></div>
+        <p>Komponenten werden montiert und jedes Gerät vor dem Versand auf einwandfreie Funktion geprüft — Stück für Stück.</p>
+      </div>
+      <div class="upg-step">
+        <div class="font-display upg-step-num">03</div>
+        <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
+        <h3 class="font-display">Sichere Verpackung</h3>
+        <div class="line"></div>
+        <p>Jedes Produkt wird transportsicher und bruchgeschützt verpackt, damit es makellos bei Ihnen ankommt.</p>
+      </div>
+      <div class="upg-step">
+        <div class="font-display upg-step-num">04</div>
+        <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l3 3v5a1 1 0 0 1-1 1h-1"/><path d="M9 18h6"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></div>
+        <h3 class="font-display">Schneller Versand</h3>
+        <div class="line"></div>
+        <p>Versandfertig verlässt Ihr Produkt unser Haus und kommt schnell und zuverlässig bei Ihnen an.</p>
+      </div>
     </div>
-  </div>
-  <div class="process-grid">
-
-    <div class="process-step">
-      <div class="font-display process-step-num">01</div>
-      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
-      <h2 class="font-display">Namensschild gravieren</h2>
-      <div class="line"></div>
-      <p>Mit Laserpräzision gravieren wir Namen, Hausnummern und Motive dauerhaft in den Edelstahl — jede Gravur wird einzeln geprüft.</p>
-    </div>
-
-    <div class="process-step">
-      <div class="font-display process-step-num">02</div>
-      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-      <h2 class="font-display">Montage &amp; Prüfung</h2>
-      <div class="line"></div>
-      <p>Komponenten werden montiert und jedes Gerät vor dem Versand auf einwandfreie Funktion geprüft — Stück für Stück.</p>
-    </div>
-
-    <div class="process-step">
-      <div class="font-display process-step-num">03</div>
-      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
-      <h2 class="font-display">Sichere Verpackung</h2>
-      <div class="line"></div>
-      <p>Jedes Produkt wird transportsicher und bruchgeschützt verpackt, damit es makellos bei Ihnen ankommt.</p>
-    </div>
-
-    <div class="process-step">
-      <div class="font-display process-step-num">04</div>
-      <div class="process-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l3 3v5a1 1 0 0 1-1 1h-1"/><path d="M9 18h6"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></div>
-      <h2 class="font-display">Schneller Versand</h2>
-      <div class="line"></div>
-      <p>Versandfertig verlässt Ihr Produkt unser Haus und kommt schnell und zuverlässig bei Ihnen an.</p>
-    </div>
-
-  </div>
   </div>
 </section>
 
