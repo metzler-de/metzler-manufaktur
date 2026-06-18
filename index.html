@@ -63,10 +63,11 @@ img{display:block;max-width:100%}
 .font-display{font-family:var(--font);letter-spacing:-0.04em}
 .label{
   font-family:var(--font);
-  font-size:0.875rem;
-  letter-spacing:0.2em;
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.18em;
   text-transform:uppercase;
-  color:var(--muted-foreground);
+  color:#54545C;
 }
 .text-stroke{
   -webkit-text-stroke:1px var(--foreground);
@@ -1171,6 +1172,19 @@ img{display:block;max-width:100%}
 .cine-media{position:absolute;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:0;cursor:pointer;background:#010a0a}
 /* contain = the full frame is always visible (no crop); its height scales with the hero/browser height */
 .cine-media video{width:100%;height:100%;object-fit:contain;display:block}
+/* Sound on/off toggle (top-right, below the header) */
+.cine-mute{
+  position:absolute;z-index:6;
+  top:calc(var(--hdr-h) + 1rem);right:1.25rem;
+  width:2.75rem;height:2.75rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.4);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,0.3);color:#fff;cursor:pointer;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.cine-mute:hover{background:rgba(0,0,0,0.62);border-color:rgba(255,255,255,0.55);transform:translateY(-1px)}
+.cine-mute svg{width:20px;height:20px;display:block}
+@media(min-width:769px){.cine-mute{right:2.5rem}}
 .cine-scrim{
   position:absolute;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:1;pointer-events:none;
   background:
@@ -1188,7 +1202,7 @@ img{display:block;max-width:100%}
 }
 @media(min-width:769px){.cine-content{padding:0 2.5rem;bottom:96px}}
 .cine-lead{max-width:780px}
-.cine-lead .label{display:block;color:var(--mint);margin-bottom:0.7rem;letter-spacing:0.24em;font-size:0.875rem}
+.cine-lead .label{display:block;color:#DADADA;margin-bottom:0.7rem}
 .cine-hero h1{
   font-size:clamp(2rem,4.5vw,3.5rem);
   line-height:1.02;letter-spacing:-0.03em;font-weight:700;
@@ -1270,8 +1284,8 @@ img{display:block;max-width:100%}
 .manu-head{
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
 }
-@media(min-width:880px){.manu-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem}}
-.manufaktur .label{color:var(--brand);margin-bottom:1rem;display:block}
+@media(min-width:880px){.manu-head{grid-template-columns:1fr 1fr;gap:3.5rem}}
+.manufaktur .label{color:#54545C;margin-bottom:1rem;display:block}
 .manufaktur h2{
   font-family:var(--font);font-weight:700;margin:0;
   font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;color:var(--foreground);
@@ -1314,7 +1328,7 @@ img{display:block;max-width:100%}
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;
 }
 @media(min-width:880px){.process-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem;margin-bottom:3rem}}
-.process-head .label{color:var(--brand);display:block;margin-bottom:1rem}
+.process-head .label{color:#54545C;display:block;margin-bottom:1rem}
 .process-head h2{
   font-family:var(--font);font-weight:700;margin:0;
   font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;color:var(--foreground);
@@ -1358,6 +1372,15 @@ img{display:block;max-width:100%}
 .upg{position:relative;padding:4rem 0;background:#fff;color:var(--foreground)}
 @media(min-width:768px){.upg{padding:5.5rem 0}}
 .upg-inner{max-width:1600px;margin:0 auto}
+/* Centered, stacked header (eyebrow → heading → paragraph) */
+.upg-head{max-width:48rem;margin:0 auto 2.5rem;text-align:center}
+@media(min-width:768px){.upg-head{margin-bottom:3rem}}
+.upg-head .label{color:#54545C;display:block;margin-bottom:1rem}
+.upg-head h2{
+  font-family:var(--font);font-weight:700;margin:0;
+  font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;color:var(--foreground);
+}
+.upg-head p{margin:1.1rem auto 0;max-width:60ch;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
 .upg-steps{display:grid;grid-template-columns:1fr;gap:0}
 @media(min-width:600px){.upg-steps{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.upg-steps{grid-template-columns:repeat(4,1fr)}}
@@ -1402,7 +1425,7 @@ img{display:block;max-width:100%}
 .quality .hero-ambient1{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,#013a3b 0%,transparent 55%);opacity:.6;pointer-events:none}
 .quality-inner{position:relative;z-index:2;max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
 @media(min-width:900px){.quality-inner{grid-template-columns:1fr 1fr;gap:4rem}}
-.quality-text .label{color:var(--mint);margin-bottom:1.25rem;display:block}
+.quality-text .label{color:#DADADA;margin-bottom:1.25rem;display:block}
 .quality-text h2{font-size:clamp(1.75rem,3.5vw,2.75rem);line-height:1.15;letter-spacing:-0.02em;font-weight:700}
 .quality-text p{margin-top:1.5rem;font-size:1.0625rem;line-height:1.7;color:rgba(255,255,255,0.82)}
 .quality-list{display:flex;flex-direction:column;gap:1.25rem}
@@ -1416,6 +1439,30 @@ img{display:block;max-width:100%}
 .quality-item h4{font-size:1.0625rem;font-weight:700;color:#fff}
 .quality-item p{margin-top:.35rem;font-size:0.9375rem;line-height:1.55;color:rgba(255,255,255,0.72)}
 
+/* ─── QUALITY (alternative light card-grid design) ─── */
+.quality-alt{position:relative;padding:4.5rem 0;background:#F2F6F6;color:var(--g900)}
+@media(min-width:768px){.quality-alt{padding:6.5rem 0}}
+.quality-alt-inner{max-width:1600px;margin:0 auto}
+.qalt-head{max-width:48rem;margin:0 auto 3rem;text-align:center}
+.qalt-head .label{color:#54545C;display:block;margin-bottom:1rem}
+.qalt-head h2{font-family:var(--font);font-weight:700;margin:0;font-size:clamp(1.75rem,3.5vw,2.75rem);line-height:1.15;letter-spacing:-0.02em;color:var(--foreground)}
+.qalt-head p{margin:1.25rem auto 0;max-width:60ch;font-size:1.0625rem;line-height:1.7;color:var(--muted-foreground)}
+.qalt-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:600px){.qalt-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.qalt-grid{grid-template-columns:repeat(4,1fr)}}
+.qalt-card{
+  background:#fff;border:1px solid var(--border);border-radius:0.75rem;padding:2rem 1.875rem;
+  display:flex;flex-direction:column;gap:1rem;transition:box-shadow .25s ease,transform .25s ease;
+}
+@media(hover:hover){.qalt-card:hover{box-shadow:0 16px 36px -22px rgba(1,41,42,0.45);transform:translateY(-3px)}}
+.qalt-card-icon{
+  width:3rem;height:3rem;border-radius:0.75rem;background:rgba(1,82,83,0.08);color:var(--brand);
+  display:inline-flex;align-items:center;justify-content:center;
+}
+.qalt-card-icon svg{width:1.5rem;height:1.5rem}
+.qalt-card h4{font-size:1.1875rem;font-weight:700;line-height:1.3;color:var(--foreground);margin:0}
+.qalt-card p{font-size:1rem;line-height:1.6;color:var(--muted-foreground);margin:0}
+
 /* ─── CTA ─── */
 .prod-cta{padding:4.5rem 1.5rem 2.5rem}
 @media(min-width:768px){.prod-cta{padding:6.5rem 2.5rem 7rem}}
@@ -1423,8 +1470,8 @@ img{display:block;max-width:100%}
 .prod-cta-head{
   display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:end;margin-bottom:2.5rem;
 }
-@media(min-width:880px){.prod-cta-head{grid-template-columns:1.1fr 0.9fr;gap:3.5rem;margin-bottom:3rem}}
-.prod-cta .label{color:var(--brand);display:block;margin-bottom:1rem}
+@media(min-width:880px){.prod-cta-head{grid-template-columns:1fr 1fr;gap:3.5rem;margin-bottom:3rem}}
+.prod-cta .label{color:#54545C;display:block;margin-bottom:1rem}
 .prod-cta h2{font-size:clamp(1.875rem,3.6vw,3rem);line-height:1.08;letter-spacing:-0.03em;font-weight:700;margin:0}
 .prod-cta-head p{margin:0;font-size:1.0625rem;line-height:1.6;color:var(--muted-foreground)}
 .prod-cta-link{display:inline-flex;align-items:center;gap:0.55rem;margin-top:1.4rem;color:var(--brand);font-weight:600;font-size:0.9375rem;text-decoration:none}
@@ -1453,7 +1500,7 @@ img{display:block;max-width:100%}
 .hdr-row1-inner,.hdr-row2-inner,.nav-inner,.hdr-compact-inner,.hdr-mobile-bar,.hdr-mobile-topbar,
 .mzf-inner,
 .cine-content,.cine-steps,.process-inner,.upg-inner,
-.manufaktur-inner,.quality-inner,.prod-cta-inner{
+.manufaktur-inner,.quality-inner,.quality-alt-inner,.prod-cta-inner{
   padding-left:var(--gutter)!important;
   padding-right:var(--gutter)!important;
 }
@@ -1528,7 +1575,7 @@ img{display:block;max-width:100%}
     <a href="main-page.html" class="hdr-logo"><img src="logo.svg" alt="Metzler" /></a>
     <button class="hdr-menu-btn" id="menuBtn" aria-label="Kategorien">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h18"/></svg>
-      Alle Kategorien
+      Kategorien
     </button>
     <div class="hdr-searchbar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5l4 4" stroke-linecap="round"/></svg>
@@ -1697,6 +1744,9 @@ img{display:block;max-width:100%}
   </div>
   <div class="cine-scrim"></div>
 
+  <!-- Sound on/off -->
+  <button class="cine-mute" id="prodVideoMute" type="button" aria-label="Ton einschalten"></button>
+
   <!-- Bottom editorial content -->
   <div class="cine-content">
     <div class="cine-lead">
@@ -1742,14 +1792,10 @@ img{display:block;max-width:100%}
 <!-- ═══ PROCESS ═══ -->
 <section class="upg" data-reveal>
   <div class="upg-inner">
-    <div class="process-head">
-      <div>
-        <span class="label">So entsteht Ihr Produkt</span>
-        <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
-      </div>
-      <div>
-        <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeder Schritt geschieht bei uns mit Sorgfalt und Präzision.</p>
-      </div>
+    <div class="upg-head">
+      <span class="label">So entsteht Ihr Produkt</span>
+      <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
+      <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeden Schritt übernehmen wir selbst, mit Sorgfalt und Präzision.</p>
     </div>
     <div class="upg-steps">
       <div class="upg-step">
@@ -1784,35 +1830,34 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- ═══ QUALITY BAND ═══ -->
-<section class="quality grain" data-reveal>
-  <div class="hero-ambient1"></div>
-  <div class="quality-inner">
-    <div class="quality-text">
+<!-- ═══ QUALITY (light card-grid design) ═══ -->
+<section class="quality-alt" data-reveal>
+  <div class="quality-alt-inner">
+    <div class="qalt-head">
       <span class="label">Anspruch</span>
       <h2 class="font-display">Qualität, die man sieht — und spürt</h2>
-      <p>
-        Vom eigenen Entwurf über die Gravur bis zur letzten Sichtkontrolle steht jeder Schritt
-        für den Metzler-Anspruch: hochwertige Materialien, lange Haltbarkeit und ein Service,
-        der überzeugt.
-      </p>
+      <p>Vom eigenen Entwurf über die Gravur bis zur letzten Sichtkontrolle steht jeder Schritt für den Metzler-Anspruch: hochwertige Materialien, lange Haltbarkeit und ein Service, der überzeugt.</p>
     </div>
-    <div class="quality-list">
-      <div class="quality-item">
-        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><h4>Designed in Germany</h4><p>Eigene Konstruktionsabteilung mit über 500 eingetragenen Patenten &amp; Designs.</p></div>
+    <div class="qalt-grid">
+      <div class="qalt-card">
+        <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+        <h4>Designed in Germany</h4>
+        <p>Eigene Konstruktionsabteilung mit über 500 eingetragenen Patenten &amp; Designs.</p>
       </div>
-      <div class="quality-item">
-        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><h4>Graviert &amp; geprüft im Haus</h4><p>Gravur, Veredelung und Endkontrolle übernehmen wir an unserem Standort in Reutlingen.</p></div>
+      <div class="qalt-card">
+        <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/></svg></span>
+        <h4>Graviert, veredelt &amp; geprüft im Haus</h4>
+        <p>Gravur, Veredelung und Endkontrolle übernehmen wir an unserem Standort in Reutlingen.</p>
       </div>
-      <div class="quality-item">
-        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><h4>Hochwertiger Edelstahl</h4><p>Rostfreier Edelstahl statt kurzlebigem Kunststoff — für jahrzehntelange Haltbarkeit.</p></div>
+      <div class="qalt-card">
+        <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h4>Hochwertiger Edelstahl</h4>
+        <p>Rostfreier Edelstahl statt kurzlebigem Kunststoff — für jahrzehntelange Haltbarkeit.</p>
       </div>
-      <div class="quality-item">
-        <div class="quality-item-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><h4>Bewährte Qualität</h4><p>Über 1,8 Mio. Kunden vertrauen seit 2013 auf Metzler.</p></div>
+      <div class="qalt-card">
+        <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h4>Bewährte Qualität</h4>
+        <p>Über 1,8 Mio. Kunden vertrauen seit 2013 auf Metzler.</p>
       </div>
     </div>
   </div>
