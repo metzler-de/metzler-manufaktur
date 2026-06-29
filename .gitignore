@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+
+# Raw camera originals (HEIC/MOV) — only the optimized gallery-web/ webp are shipped
+gallery/
