@@ -19,7 +19,7 @@
   --secondary:#015253;
   --secondary-foreground:#fff;
   --muted:#E6E6E8;
-  --muted-foreground:#54545C;
+  --muted-foreground:#2E2E36;
   --accent:#015253;
   --accent-foreground:#fff;
   --border:rgba(0,0,0,0.1);
@@ -40,7 +40,7 @@
   --card:#FFFFFF;
   --card-foreground:#1A1A1F;
   --muted:#E6E6E8;
-  --muted-foreground:#54545C;
+  --muted-foreground:#2E2E36;
   --border:rgba(0,0,0,0.12);
   background:#F5F6FA;color:#1A1A1F;
 }
@@ -1169,11 +1169,11 @@ img{display:block;max-width:100%}
 .cine-hero .hero-ambient2{position:absolute;inset:0;background:radial-gradient(ellipse at 100% 100%,#000 0%,transparent 70%);pointer-events:none}
 .cine-hero.grain::after{z-index:1}
 /* Breadcrumbs */
-.hero-breadcrumbs{position:absolute;top:1.75rem;left:0;right:0;z-index:25;font-family:var(--font);font-size:0.875rem;line-height:1}
-.hero-breadcrumbs-inner{max-width:100rem;margin:0 auto;padding:0 var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:0.625rem;color:rgba(255,255,255,0.6)}
-.hero-breadcrumbs a{color:rgba(255,255,255,0.6);font-weight:400;text-decoration:none;transition:color .15s ease}
-.hero-breadcrumbs a:hover{color:#fff;text-decoration:underline}
-.hero-breadcrumbs .sep{display:inline-block;width:0.375rem;height:0.625rem;background:url("data:image/svg+xml,%3Csvg width='6' height='10' viewBox='0 0 6 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4-4 4' stroke='white' stroke-opacity='0.45' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
+.hero-breadcrumbs{position:absolute;top:1.75rem;left:0;right:0;z-index:25;font-family:var(--font);font-size:0.8125rem;line-height:1}
+.hero-breadcrumbs-inner{max-width:100rem;margin:0 auto;padding:0 var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:0.375rem;color:rgba(255,255,255,0.6)}
+.hero-breadcrumbs a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s ease}
+.hero-breadcrumbs a:hover{color:#fff}
+.hero-breadcrumbs .sep{color:rgba(255,255,255,0.3)}
 .hero-breadcrumbs .current{color:#fff;font-weight:500}
 @media(max-width:1023px){.hero-breadcrumbs{position:static;padding-top:1.5rem}}
 .cine-hero-grid{
@@ -1293,7 +1293,7 @@ img{display:block;max-width:100%}
 .film-chapter.active::after{transform:scaleX(1)}
 .film-chapter-num{font-family:var(--font);font-size:0.75rem;font-weight:700;letter-spacing:0.14em;color:rgba(255,255,255,0.4);font-variant-numeric:tabular-nums;transition:color .25s ease}
 .film-chapter-title{font-family:var(--font);font-size:1.125rem;font-weight:700;line-height:1.375;color:#fff;letter-spacing:-0.01em}
-.film-chapter-desc{font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.6)}
+.film-chapter-desc{font-size:1rem;line-height:1.6;color:rgba(255,255,255,0.6)}
 .film-chapter.active{background:rgba(92,219,211,0.09);border-color:rgba(92,219,211,0.45)}
 .film-chapter.active .film-chapter-num{color:var(--mint)}
 
@@ -1478,7 +1478,7 @@ img{display:block;max-width:100%}
 .upg-step h3{font-family:var(--font);font-size:1.25rem;font-weight:700;line-height:1.35;color:var(--foreground);margin:0}
 .upg-step .line{height:0.0625rem;width:3rem;background:var(--brand);transition:width .7s}
 @media(hover:hover){.upg-step:hover .line{width:100%}}
-.upg-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.5;margin:0}
+.upg-step p{font-size:1rem;color:var(--muted-foreground);line-height:1.6;margin:0}
 @media(max-width:599px){
   .upg-step{padding:1.5rem 0;gap:0.75rem}
   .upg-step-num{font-size:2rem}
@@ -1521,12 +1521,12 @@ img{display:block;max-width:100%}
 }
 @media(hover:hover){.qalt-card:hover{box-shadow:0 1rem 2.25rem -1.375rem rgba(1,41,42,0.45);transform:translateY(-0.1875rem)}}
 .qalt-card-icon{
-  width:3rem;height:3rem;border-radius:0.75rem;background:rgba(1,82,83,0.08);color:var(--brand);
-  display:inline-flex;align-items:center;justify-content:center;
+  width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(1,82,83,0.08);color:var(--brand);
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.qalt-card-icon svg{width:1.5rem;height:1.5rem}
-.qalt-card h4{font-size:1.25rem;font-weight:700;line-height:1.35;color:var(--foreground);margin:0}
-.qalt-card p{font-size:1rem;line-height:1.5;color:var(--muted-foreground);margin:0}
+.qalt-card-icon svg{width:1.375rem;height:1.375rem}
+.qalt-card h3{font-size:1.25rem;font-weight:700;line-height:1.35;color:var(--foreground);margin:0}
+.qalt-card p{font-size:1rem;line-height:1.6;color:var(--muted-foreground);margin:0}
 
 /* ─── CTA ─── */
 .prod-cta{padding:4.5rem 1.5rem 2.5rem}
@@ -1804,7 +1804,7 @@ img{display:block;max-width:100%}
 
   <nav class="hero-breadcrumbs" aria-label="Breadcrumb">
     <div class="hero-breadcrumbs-inner">
-      <a href="https://edelstahl-tuerklingel.de/">Home</a><span class="sep" aria-hidden="true"></span>
+      <a href="https://edelstahl-tuerklingel.de/">Home</a><span class="sep">/</span>
       <span class="current">Manufaktur</span>
     </div>
   </nav>
@@ -1817,7 +1817,7 @@ img{display:block;max-width:100%}
         <span class="hero-badge">Designed in Germany 🇩🇪</span>
         <span class="hero-badge">Eigene Fertigung</span>
       </div>
-      <p class="cine-hero-desc">Lasergravur, Montage, Endkontrolle, Verpackung und Versand erfolgen in eigener Fertigung in Reutlingen. Namen, Hausnummern und Motive werden direkt in den Edelstahl graviert, jedes Gerät vor dem Versand geprüft.</p>
+      <p class="cine-hero-desc">Lasergravur, Montage, Endkontrolle, Verpackung und Versand erfolgen in eigener Fertigung in Reutlingen. Namen und Hausnummern werden direkt in den Edelstahl graviert, jedes Gerät vor dem Versand geprüft.</p>
       <div class="cine-hero-actions">
         <a href="#film" class="btn btn-primary btn-lg">
           Video ansehen
@@ -1842,12 +1842,11 @@ img{display:block;max-width:100%}
     <div class="manu-head">
       <div>
         <span class="label">Unsere Fertigung</span>
-        <h2 class="font-display">Graviert und veredelt —<br><span class="hl">in Deutschland</span></h2>
+        <h2 class="font-display">Graviert und <span class="hl">veredelt</span></h2>
       </div>
       <p>
-        Jedes Produkt durchläuft bei uns dieselbe Sorgfalt: Wir gravieren Namen und Motive
-        dauerhaft in den Edelstahl, veredeln jedes Detail und prüfen das Ergebnis von Hand —
-        bevor es sorgfältig verpackt auf den Weg zu Ihnen geht.
+        Namen und Hausnummern gravieren wir dauerhaft in den Edelstahl und prüfen
+        jedes Ergebnis von Hand — bevor es sorgfältig verpackt auf den Weg zu Ihnen geht.
       </p>
     </div>
     <div class="manu-gallery">
@@ -1861,9 +1860,9 @@ img{display:block;max-width:100%}
 <section class="upg" data-reveal>
   <div class="upg-inner">
     <div class="upg-head">
-      <span class="label">So entsteht Ihr Produkt</span>
-      <h2 class="font-display">In vier Schritten zum fertigen Metzler</h2>
-      <p>Von der Gravur bis zum Paket vor Ihrer Tür — jeden Schritt übernehmen wir selbst, mit Sorgfalt und Präzision.</p>
+      <span class="label">Eigene Fertigung</span>
+      <h2 class="font-display">In vier Schritten zum fertigen Produkt</h2>
+      <p>Briefkästen, Paketboxen und Mülltonnenboxen fertigen und gravieren wir selbst — von der Gravur bis zum Versand.</p>
     </div>
     <div class="upg-steps">
       <div class="upg-step">
@@ -1871,7 +1870,7 @@ img{display:block;max-width:100%}
         <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
         <h3 class="font-display">Namensschild gravieren</h3>
         <div class="line"></div>
-        <p>Mit Laserpräzision gravieren wir Namen, Hausnummern und Motive dauerhaft in den Edelstahl — jede Gravur wird einzeln geprüft.</p>
+        <p>Mit Laserpräzision gravieren wir Namen und Hausnummern dauerhaft in den Edelstahl — jede Gravur wird einzeln geprüft.</p>
       </div>
       <div class="upg-step">
         <div class="font-display upg-step-num">02</div>
@@ -1892,7 +1891,7 @@ img{display:block;max-width:100%}
         <div class="upg-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l3 3v5a1 1 0 0 1-1 1h-1"/><path d="M9 18h6"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="17.5" cy="18.5" r="1.5"/></svg></div>
         <h3 class="font-display">Schneller Versand</h3>
         <div class="line"></div>
-        <p>Versandfertig verlässt Ihr Produkt unser Haus und kommt schnell und zuverlässig bei Ihnen an.</p>
+        <p>Versandfertig geht Ihr Produkt schnell und zuverlässig auf den Weg zu Ihnen.</p>
       </div>
     </div>
   </div>
@@ -1963,29 +1962,29 @@ img{display:block;max-width:100%}
 <section class="quality-alt" data-reveal>
   <div class="quality-alt-inner">
     <div class="qalt-head">
-      <span class="label">Anspruch</span>
-      <h2 class="font-display">Qualität, die man sieht — und spürt</h2>
-      <p>Vom eigenen Entwurf über die Gravur bis zur letzten Sichtkontrolle steht jeder Schritt für den Metzler-Anspruch: hochwertige Materialien, lange Haltbarkeit und ein Service, der überzeugt.</p>
+      <span class="label">Qualität</span>
+      <h2 class="font-display">Sorgfalt in jedem Schritt</h2>
+      <p>Von der Gravur über die Montage bis zur Endkontrolle prüfen wir jeden Schritt.</p>
     </div>
     <div class="qalt-grid">
       <div class="qalt-card">
         <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
-        <h4>Designed in Germany</h4>
+        <h3>Designed in Germany</h3>
         <p>Eigene Konstruktionsabteilung mit über 500 eingetragenen Patenten &amp; Designs.</p>
       </div>
       <div class="qalt-card">
         <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/></svg></span>
-        <h4>Graviert, veredelt &amp; geprüft im Haus</h4>
+        <h3>Graviert, veredelt &amp; geprüft im Haus</h3>
         <p>Gravur, Veredelung und Endkontrolle übernehmen wir an unserem Standort in Reutlingen.</p>
       </div>
       <div class="qalt-card">
         <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <h4>Hochwertiger Edelstahl</h4>
-        <p>Rostfreier Edelstahl statt kurzlebigem Kunststoff — für jahrzehntelange Haltbarkeit.</p>
+        <h3>Langlebige Materialien</h3>
+        <p>Hochwertige, wetterfeste Materialien und robuste Verarbeitung — gebaut für viele Jahre im Außeneinsatz.</p>
       </div>
       <div class="qalt-card">
         <span class="qalt-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-        <h4>Bewährte Qualität</h4>
+        <h3>Bewährte Qualität</h3>
         <p>Über 1,8 Mio. Kunden vertrauen seit 2013 auf Metzler.</p>
       </div>
     </div>
@@ -1998,7 +1997,7 @@ img{display:block;max-width:100%}
     <div class="film-head">
       <span class="label">Metzler Manufaktur</span>
       <h2 class="font-display">So entsteht Ihr Produkt</h2>
-      <p>Von der Gravur über die Endkontrolle bis zum Versand — sehen Sie, wie wir Ihr Produkt in Deutschland veredeln.</p>
+      <p>Von der Gravur über die Endkontrolle bis zum Versand — sehen Sie, wie sorgfältig Ihr Produkt entsteht.</p>
     </div>
     <div class="film-frame" id="prodVideoFrame">
       <video id="prodVideo" muted loop playsinline preload="metadata" poster="video-stills/still-03-t17.jpg">
@@ -2016,22 +2015,22 @@ img{display:block;max-width:100%}
       <button class="film-chapter active" type="button" data-i="0">
         <span class="film-chapter-num">01</span>
         <span class="film-chapter-title">Gravur</span>
-        <span class="film-chapter-desc">Namen, Hausnummern und Motive per Laser dauerhaft in den Edelstahl graviert.</span>
+        <span class="film-chapter-desc">Namen und Hausnummern werden per Laser dauerhaft in den Edelstahl graviert.</span>
       </button>
       <button class="film-chapter" type="button" data-i="1">
         <span class="film-chapter-num">02</span>
         <span class="film-chapter-title">Fertigung</span>
-        <span class="film-chapter-desc">Komponenten montiert und jedes Gerät vor dem Versand auf Funktion geprüft.</span>
+        <span class="film-chapter-desc">Komponenten werden montiert und jedes Gerät vor dem Versand auf einwandfreie Funktion geprüft.</span>
       </button>
       <button class="film-chapter" type="button" data-i="2">
         <span class="film-chapter-num">03</span>
         <span class="film-chapter-title">Verpackung</span>
-        <span class="film-chapter-desc">Transportsicher und bruchgeschützt für den Weg zu Ihnen verpackt.</span>
+        <span class="film-chapter-desc">Jedes Produkt wird transportsicher und bruchgeschützt für den Weg zu Ihnen verpackt.</span>
       </button>
       <button class="film-chapter" type="button" data-i="3">
         <span class="film-chapter-num">04</span>
         <span class="film-chapter-title">Versand</span>
-        <span class="film-chapter-desc">Versandfertig verlässt Ihr Produkt das Haus — schnell und zuverlässig.</span>
+        <span class="film-chapter-desc">Versandfertig geht Ihr Produkt schnell und zuverlässig auf den Weg zu Ihnen.</span>
       </button>
     </div>
   </div>
